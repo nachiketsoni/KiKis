@@ -3,18 +3,25 @@
     padding: 0%;
     box-sizing: border-box;
   }
+  @font-face {
+    font-family: Didact Gothic;
+    src: url(../fonts/didact-gothic/didactgothic-regular.otf);
+  }
   html,body{
     height: 100%;
     width: 100%;
   }
+  *::-webkit-scrollbar{
+    display: none;
+  }
   #main{
     height: 100%;
     width: 100%;
-   
+   overflow: hidden;
   }
 #box1{
     position: relative;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: rgb(32, 30, 30);
 }
@@ -29,7 +36,7 @@
 #img1 img{
     height: 100%;
     width: 100%;
-
+    object-fit: cover;
 }
 nav{
     position: absolute;
@@ -66,8 +73,8 @@ nav a h3 span{
     margin-top: 2%;
     font-size: 4.2vw;
     color: whitesmoke;
-    font-family: OSWALD; 
-    font-family:Okra Light;
+    font-family: Didact Gothic;
+
     animation-name: neon 5s infinite;
     font-weight: 100;
     
@@ -85,26 +92,24 @@ nav a h3 span{
 }
 #text p{
     color: white;
-    font-family: oswald;
     font-weight: 100;
     color: rgb(176, 176, 176);
+    font-family: Didact Gothic;
     
 }
-#text h2{
-    color: white;
-    font-weight: 200;
-    font-size: 1vw;
-    margin-top: 7%;
-    font-family:  cursive ;
-}
+
 #det{
     position: absolute;
     right: 1%;
     top: 9%;
     height: 90%;
     width: 40%;
-    background-color: white;
-    
+    background: rgba(65, 65, 65, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
 }
 #det form{
     margin-top: 4%;
@@ -116,16 +121,22 @@ nav a h3 span{
     margin-left: 12%;
     font-family: gilroy;
     font-weight: 200;
-    color: black;
+    color: rgb(197, 197, 197);
+}
+#det input::placeholder{
+    color: rgb(144, 144, 144);
+    font-family: Didact Gothic;
 }
 #det input{
     margin-left: 8%;
     padding-left: 3%;
     margin-top: 1%;
+    color: rgb(197, 197, 197);;
     height: 7vh;
     width: 30vw;
-    background-color: rgb(243, 241, 239);
-    border: 2px solid whitesmoke;
+    background-color: rgba(44, 44, 44, 0.462);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(0, 0, 0, 0);
     font-size: 1.1vw;
     
 }
@@ -139,13 +150,13 @@ nav a h3 span{
 }
 #det h5{
     font-family: gilroy;
-    color: black;
+    color: rgb(197, 197, 197);
     font-size: 0.8vw;
     font-weight: 100;
     padding: 30px 50px;
 }
 #det input:nth-child(8){
-    color: white;
+    color: rgb(197, 197, 197);
     background-color: orange;
 }
 
