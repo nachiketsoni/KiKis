@@ -1,0 +1,202 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+  }
+  html,body{
+    height: 100%;
+    width: 100%;
+  }
+  #main{
+    height: 100%;
+    width: 100%;
+   
+  }
+#box1{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(32, 30, 30);
+}
+#img1{
+    position: absolute;
+    right: 0%;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: black;
+}
+#img1 img{
+    height: 100%;
+    width: 100%;
+
+}
+nav{
+    position: absolute;
+    height: 8%;
+    top: 0%;
+    width: 100%;
+    z-index: 2;
+  
+}
+nav a h3{
+    font-size: 2vw;
+    margin-left: 12%;
+    margin-top: 0.5%;
+    color: orange;
+    font-family: oswald;
+    font-weight: 100;
+    text-decoration: underline;
+    
+}
+
+nav a h3 span{
+    font-family: cataline script;
+    color: whitesmoke;
+    text-decoration: none;
+
+}
+#text{
+    height: 40%;
+    width: 40%;
+    margin-left: 12%;
+    margin-top: 19%;
+}
+#text h1{
+    margin-top: 2%;
+    font-size: 4.2vw;
+    color: whitesmoke;
+    font-family: OSWALD; 
+    font-family:Okra Light;
+    animation-name: neon 5s infinite;
+    font-weight: 100;
+    
+}
+@keyframes neon {
+    0%, 39%, 41%,59%, 61%, 100% {
+        text-shadow: 
+        white 0 0 12px,
+        #ff3add 0 0 24px,
+        #ff3add 0 0 36px,;
+    }
+    40%,60% {
+        text-shadow: none;
+    }
+}
+#text p{
+    color: white;
+    font-family: oswald;
+    font-weight: 100;
+    color: rgb(176, 176, 176);
+    
+}
+#text h2{
+    color: white;
+    font-weight: 200;
+    font-size: 1vw;
+    margin-top: 7%;
+    font-family:  cursive ;
+}
+#det{
+    position: absolute;
+    right: 1%;
+    top: 9%;
+    height: 90%;
+    width: 40%;
+    background-color: white;
+    
+}
+#det form{
+    margin-top: 4%;
+    margin-left: 4%;
+
+}
+#det h2{
+    margin-top: 8%;
+    margin-left: 12%;
+    font-family: gilroy;
+    font-weight: 200;
+    color: black;
+}
+#det input{
+    margin-left: 8%;
+    padding-left: 3%;
+    margin-top: 1%;
+    height: 7vh;
+    width: 30vw;
+    background-color: rgb(243, 241, 239);
+    border: 2px solid whitesmoke;
+    font-size: 1.1vw;
+    
+}
+#det input:nth-child(4){
+    margin-top: 7%;
+    width: 14.5vw;
+}
+#det input:nth-child(5){
+    width: 14.5vw;
+    margin-left: 1.5%;
+}
+#det h5{
+    font-family: gilroy;
+    color: black;
+    font-size: 0.8vw;
+    font-weight: 100;
+    padding: 30px 50px;
+}
+#det input:nth-child(8){
+    color: white;
+    background-color: orange;
+}
+
+
+nav h1{
+    color: white;
+    font-family: fantasy;
+    margin-left: 20%;
+    margin-top: 1%;
+    font-size: 2vw;
+}
+nav h1 span{
+    font-family: cataline script;
+}
+nav h2{
+    color: white;
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 55%;
+    margin-top: -2.5%;
+    font-weight: 100;
+}
+nav button{
+   height: 35px;
+   width: 60px;
+   background-color: transparent;
+   border: 1px solid white;
+   border-radius: 12%;
+   color: white;
+  
+   position: absolute;
+   left: 64%;
+   top: 40%;
+   background-color: rgb(0, 0, 0);
+}
+nav button:nth-child(1){
+    height: 35px;
+    width: 90px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 12%;
+    color: white;
+   
+    position: absolute;
+    left: 74%;
+    top: 40%;
+    background-color: rgba(0, 0, 0, 0.329);
+ }
+ #trans{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 11111111;
+    background-color: rgba(0, 0, 0, 0.763);
+ }

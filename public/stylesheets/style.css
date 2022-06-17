@@ -1,0 +1,389 @@
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
+.main{
+  height: 100%;
+  width: 100%;
+}
+#box1{
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+#left{
+  padding: 70px 90px;
+  height: 100%;
+  width: 50%;
+}
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8%;
+  width: 100%;
+  
+}
+#lf{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* overflow: hidden; */
+  height: 100%;
+  width: 20%;
+  z-index: 100;
+  cursor: pointer;
+}
+#lf span{
+  margin-top: -30%;
+  margin-left: 0%;
+  height: 80px;
+  width: 80px;
+}
+#lf img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+#lf span2{
+  font-size: 1.3vw;
+  font-family: cataline Script;
+  font-weight: 550;
+  color: rgb(72, 72, 72);
+}
+#lf h2{
+  font-size: 1.3vw;
+  font-family: gilroy;
+  font-weight: 550;
+  color: orange;
+}
+#text{
+  margin-top: 20%;
+  margin-left:6%;
+}
+#text h2{
+  font-size: 1.5vw;
+  font-family: gilroy;
+  color: black;
+  font-weight: 100;
+  margin-top: 2%;
+}
+#text h1{
+  font-size: 3vw;
+  font-family: gilroy;
+}
+#text h1:nth-child(2){
+  font-size: 3vw;
+  font-family: gilroy;
+  color: orange;
+}
+#order{
+  margin-top: 10%;
+  height: 5vh;
+  width: 10vw;
+  background-color: orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px 22px 22px 22px;
+  color: whitesmoke;
+
+  background: orange;
+  box-shadow:  0px 8px 43px rgb(249, 192, 85);
+               
+}
+#rg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 80%;
+}
+#rg h2{
+  cursor: pointer;
+  margin-left: 10%;
+  font-size: 1.3vw;
+  font-family: gilroy;
+  font-weight: 550;
+  color: rgb(72, 72, 72);
+}
+#rg a{
+  cursor: pointer;
+
+  text-decoration: none;
+  margin-right: 0%;
+  white-space: nowrap;
+  margin-left: 3%;
+}
+#right{
+  position: relative;
+  height: 100%;
+  width: 50%;
+  
+}
+#rec1{
+  position: absolute;
+  bottom: -40%;
+  right: -16.5%;
+  height: 70%;
+  width: 120%;
+  background-color: rgb(236, 154, 0);
+  transform: rotate(-45deg);
+  z-index: 1;
+}
+#rec2{
+  position: absolute;
+  overflow: hidden;
+  top: 17%;
+  left: 14%;
+  height: 60%;
+  width: 60%;
+  background-color: rgb(56, 47, 30);
+  transform: rotate(45deg);
+  z-index: 1;
+  border-radius: 22px 22px 22px 22px;
+  box-shadow:  -22px 60px 100px rgb(238, 124, 124);
+}
+#rec2 img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+#rec3{
+  position: absolute;
+  top: -30%;
+  right: -35%;
+  height: 60%;
+  width: 80%;
+  background-color: rgb(33, 240, 126);
+  transform: rotate(45deg);
+}
+#rec3 img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+#rec4{
+  position: absolute;
+  top: -40%;
+  right: 75%;
+  height: 60%;
+  width: 40%;
+  background-color: orange;
+  transform: rotate(-45deg);
+  border-radius: 0px 3px 100px 50px;
+
+}
+#rec5{
+  position: absolute;
+  bottom: 2%;
+  right: 88%;
+  height: 40%;
+  width: 25%;
+  background-color: rgb(65, 63, 58);
+  transform: rotate(-45deg);
+  border-radius: 30px 30px 30px 0px;
+
+
+  /* Created with https://www.css-gradient.com */
+background: #FFFFFF;
+background: -webkit-linear-gradient(bottom left, #FFFFFF, #FFA201);
+background: -moz-linear-gradient(bottom left, #FFFFFF, #FFA201);
+background: linear-gradient(bottom right, #FFFFFF, #FFA201);
+}
+#box2{
+  height: 100vh;
+  height: 100pxvw;
+}
+#log{
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(1, 0, 5, 0.546);
+  z-index: 101;
+}
+#log1{
+  position: absolute;
+  overflow: hidden;
+  transform: translateX(100%);
+  /* right: 50%; */
+  height: 100vh;
+  width: 38vw;
+  background-color: rgb(255, 255, 255);
+  right: 0%;
+  z-index: 1;
+  /* margin-right: -50%; */
+}
+
+#log1 svg{
+margin-top: 6%;
+margin-left: 6%;
+}
+#log1 h1{
+  margin-left: 7%;
+  font-size: 1.8vw;
+  font-weight: 400;
+  margin-top: 2%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#log1 h2{
+  margin-left: 7%;
+  margin-top: 1%;
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#log1 h2 span{
+  color: orange;
+  font-size: 1vw;
+  font-family: gilroy;
+  cursor: pointer;
+  font-weight: 900;
+}
+#line, #line2{
+  height: 3px;
+  width: 30px;
+  border: 2px solid rgb(188, 187, 187);
+  margin-left: 7%;
+  margin-top: 3%;
+}
+#cir , #cir2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  margin-left: 55%;
+  margin-top: -13%;
+  border: 1px solid rgb(244, 239, 159);
+}
+#circ , #circ2{
+  height: 60px;
+  width: 60px;
+  background-color: black;
+  border-radius: 50%;
+  overflow: hidden;
+}
+#circ img,#circ2 img {
+  height: 100%;
+  width: 100%;
+}
+#log form{
+  margin-top: 8%;
+}
+#log input{
+  margin-left: 7%;
+  height: 9vh;
+  width: 23vw;
+  border: 1px solid rgb(192, 192, 192);
+  padding-left: 10px;
+}
+#login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 7%;
+  margin-top: 4%;
+  height: 6vh;
+  width: 23vw;
+  border: 1px solid rgb(192, 192, 192);
+  padding-left: 10px;
+  background-color: #ff8d01;
+}
+#login h3{
+  color: whitesmoke;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: -5%;
+}
+#log1 h5{
+  color: gray;
+  font-family: gilroy;
+  margin-left: 7%;
+  margin-top: 2%;
+  
+  font-weight: 100;
+}
+#log2{
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 38vw;
+  background-color: rgb(255, 255, 255);
+  right: 0;
+  z-index: 5;
+}
+
+
+
+
+#log2 svg{
+  margin-top: 6%;
+  margin-left: 6%;
+  }
+  #log2 h1{
+    margin-left: 7%;
+    font-size: 1.8vw;
+    font-weight: 400;
+    margin-top: 2%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  #log2 h2{
+    margin-left: 7%;
+    margin-top: 1%;
+    font-size: 1vw;
+    font-weight: 400;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  #log2 h2 span{
+    color: orange;
+    font-size: 1vw;
+    font-family: gilroy;
+    cursor: pointer;
+    font-weight: 900;
+  }
+
+  #log2 form{
+    margin-top: 8%;
+  }
+  #log2 input{
+    margin-left: 7%;
+    height: 9vh;
+    width: 23vw;
+    border: 1px solid rgb(192, 192, 192);
+    padding-left: 10px;
+  }
+  #continue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 7%;
+    margin-top: 4%;
+    height: 6vh;
+    width: 23vw;
+    border: 1px solid rgb(192, 192, 192);
+    padding-left: 10px;
+    background-color: #ff8d01;
+  }
+  #continue h3{
+    color: whitesmoke;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: -5%;
+  }
+  #log2 h5{
+    color: gray;
+    font-family: gilroy;
+    margin-left: 7%;
+    margin-top: 2%;
+    font-weight: 100;
+  }
