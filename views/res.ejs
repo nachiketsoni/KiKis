@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../stylesheets/res.css">
+    <link rel="stylesheet" href="../stylesheets/lcm.css">
     <title>Document</title>
 </head>
 <body>
@@ -106,9 +107,13 @@
             </div>
         </div>
     </div>
-
+    <script src="../javascripts/lcm.js"></script>
 
     <script>
+        const scroll = new LocomotiveScroll({
+    el: document.querySelector('#main'),
+    smooth: true
+    });
         var svg = document.querySelector('#svg');
         var ques1 = document.querySelector('#quess');
         var sv = "";
@@ -128,5 +133,6 @@
         
 
     </script>
+
 </body>
 </html>
