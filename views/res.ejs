@@ -25,7 +25,7 @@
                             <h2>Get Started</h2>
                             <form action="">
                                 <input type="text" placeholder="store name">
-                                <input type="text" placeholder="store name">
+                                <input type="text" placeholder="store address">
                                 <input type="text" placeholder="floor / Suite (Optional)">
                                 <input type="text" placeholder="First name">
                                 <input type="text" placeholder="Last name">
@@ -39,6 +39,94 @@
             <div id="img1"><img src="https://images.unsplash.com/photo-1469234496837-d0101f54be3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1836&q=80" alt=""></div>
        
         </div>
+        <div id="box2">
+            <h1>Why should you partner with Kiki's?</h1>
+            <h2>Kiki's enables you to get 60% more revenue, 10x new customers and boost your brand <br></h2>
+            <span> visibility by providing insights to improve your business.</span>
+            <div id="why">
+                <div class="why1">
+                    <img src="https://b.zmtcdn.com/merchant-onboarding/d2bcadb70abdd99811cceda4cc757f5a1600670711.png" alt="">
+                    <h4>500+ cities</h4>
+                    <h5>in india</h5>
+                </div>
+                <div class="why2">
+                    <img src="https://b.zmtcdn.com/merchant-onboarding/77b29f40bd0fb6c74c78695b07cdee901600670728.png" alt="">
+                    
+                    <h4>2.5 lakhs+</h4>
+                    <h5>restaurant listings</h5>
+                </div>
+                <div class="why3">
+                    <img src="https://b.zmtcdn.com/merchant-onboarding/e2b1283698fb6d3532c2df0c22a11fca1600670743.png" alt="">
+                    <h4>4 crores+</h4>
+                    <h5>monthaly orders</h5>
+                </div>
+            </div>
+            <div id="how">
+                <img src="https://b.zmtcdn.com/merchant-onboarding/f57794be6408563354c463c702ab45b91600672364.png" alt="">
+                <h1>how it works?</h1>
+                <div id="how1">
+                    
+                         <div id="how2i"><div id="how22"><img src="https://b.zmtcdn.com/merchant-onboarding/ecb5e086ee64a4b8b063011537be18171600699886.png" alt=""></div></div>
+                    <h2>Step 1</h2>
+                    <h4>Create your page on Kiki's
+                    </h4>
+                    <h5>Help users discover your place by<br> creating a listing on Zomato</h5>
+                </div>
+                <div id="how2">
+                    <div id="how1i"><div id="how11"><img src="https://b.zmtcdn.com/merchant-onboarding/71d998231fdaeb0bffe8ff5872edcde81600699935.png" alt=""></div></div>
+                    <h2>Step 2</h2>
+                    <h4>Register for online ordering</h4>
+                    <h5>And deliver orders to millions of<br>
+                         customers with ease</h5>
+                </div>
+                <div id="how3">
+                    <div id="how3i"><div id="how33"><img src="https://b.zmtcdn.com/merchant-onboarding/efdd6ac0cd160a46c97ad58d9bbd73fd1600699950.png" alt=""></div></div>
+                    <h2>Step 3</h2>
+                    <h4>Start receiving orders online
+                    </h4>
+                    <h5>Manage orders on our partner app,<br> web dashboard or API partners</h5>
+                </div>
+            </div>
+            <div id="sug">
+                <div id="imag"><img src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_820,h_547/v1622579485/assets/04/87121d-ff0f-44ce-93f4-a11f39c5a1a5/original/DianaYin.jpg" alt=""></div>
+                <h1>"Kiki's extends our <br> brand awareness to <br> neighborhoods that<br> wouldn't normally be <br>exposed to us."</h1>
+            </div>
+            <div id="question">
+                <h1>Frequently asked questions ?</h1>
+                <div id="ques1">
+                    <select id="cars">
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="opel">Opel</option>
+                        <option value="audi">Audi</option>
+                      </select>
+                </div>
+                
+               
+            </div>
+        </div>
     </div>
+
+
+    <script>
+        var svg = document.querySelector('#svg');
+        var ques1 = document.querySelector('#quess');
+        var sv = "";
+        
+            svg.addEventListener('click',function(){
+                if(sv == 0){
+                    svg.style.transform = "rotate(180deg)";
+                    sv = 1;
+                    quess.style.display = "block";
+                }
+                else{
+                    svg.style.transform = "rotate(0deg)";
+                    sv = 0;
+                    quess.style.display = "none";
+                }
+            });
+        
+
+    </script>
 </body>
 </html>
