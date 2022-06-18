@@ -91,16 +91,15 @@ nav a h3 span{
     }
 }
 #text p{
-    color: white;
     font-weight: 100;
     color: rgb(176, 176, 176);
     font-family: Didact Gothic;
-    
+
 }
 
 #det{
     position: absolute;
-    right: 1%;
+    right: 2%;
     top: 9%;
     height: 90%;
     width: 40%;
@@ -211,3 +210,358 @@ nav button:nth-child(1){
     z-index: 11111111;
     background-color: rgba(0, 0, 0, 0.763);
  }
+#box2{
+    height: 100%;
+    width: 100vw;
+    background-color: rgb(249, 247, 247);
+}
+#box2 h1{
+    padding-top: 120px;
+    margin-left: 30%;
+    font-size: 38px;
+    color: rgb(54, 54, 54);
+    font-weight: 600;
+    font-family: Okra Light;
+    
+}
+#box2 h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    font-size: 23px;
+    color: rgb(107, 106, 106);
+    font-weight: 200;
+    font-family: Okra Light;
+    
+}
+#box2 span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    font-size: 23px;
+    color: rgb(107, 106, 106);
+    font-weight: 200;
+    font-family: Okra Light;
+    
+    
+}
+#why{
+    margin-top: 3%;
+    position: relative;
+    height: 30%;
+    width: 100%;
+    /* background-color: rgb(32, 30, 30); */
+}
+.why1{
+    position: absolute;
+    height: 15vh;
+    width: 18vw;
+    background-color: white;
+    margin-left: 19.3%;
+    margin-top: 3%;
+
+}
+.why1 img{
+    margin-top: 14%;
+    margin-left: 13%;
+}
+.why1 h4{
+    position: absolute;
+    top: 25%;
+    font-size: 1.5vw;
+    left: 40%;
+    font-family: okra light ;
+    color: rgb(69, 105, 247);
+}
+.why1 h5{
+    position: absolute;
+    top: 55%;
+    font-size: 1vw;
+    left: 40%;
+    font-family: okra light ;
+    color: gray;
+}
+/* 7974327108 */
+
+.why2{
+    position: absolute;
+    left: 22%;
+    height: 15vh;
+    width: 18vw;
+    background-color: white;
+    margin-left: 19.3%;
+    margin-top: 3%;
+
+}
+.why2 img{
+    margin-top: 14%;
+    margin-left: 13%;
+}
+.why2 h4{
+    position: absolute;
+    top: 25%;
+    font-size: 1.5vw;
+    left: 40%;
+    font-family: okra light ;
+    color: rgb(69, 105, 247);
+}
+.why2 h5{
+    position: absolute;
+    top: 55%;
+    font-size: 1vw;
+    left: 40%;
+    font-family: okra light ;
+    color: gray;
+}
+.why3{
+    position: absolute;
+    left: 44%;
+    height: 15vh;
+    width: 18vw;
+    background-color: white;
+    margin-left: 19.3%;
+    margin-top: 3%;
+}
+.why3 img{
+    margin-top: 14%;
+    margin-left: 13%;
+}
+.why3 h4{
+    position: absolute;
+    top: 25%;
+    font-size: 1.5vw;
+    left: 40%;
+    font-family: okra light ;
+    color: rgb(69, 105, 247);
+}
+.why3 h5{
+    position: absolute;
+    top: 55%;
+    font-size: 1vw;
+    left: 40%;
+    font-family: okra light ;
+    color: gray;
+}
+#how{
+    position: relative;
+    height: 50%;
+    width: 100%;
+    margin-top: 2%;
+    background-color: black;
+}
+#how h1{
+    position: absolute;
+    top: -18%;
+    left: 12%;
+  
+}
+#how img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+#how1{
+    position: absolute;
+    bottom: -35%;
+    left: 20%;
+    height: 43vh;
+    width: 18vw;
+    z-index: 2;
+    background-color: white;
+}
+#how1 h2{
+    margin-top: 5%;
+    margin-left: 2%;
+    color: black;
+    font-weight: 600;
+}
+#how1 h4{
+    margin-top: 5%;
+    color: rgb(73, 73, 73);
+    font-weight: 600;
+    font-family:okra light ;
+    margin-left: 12%;
+}
+#how1 h5{
+    align-items: center;
+    display: flex;
+    text-align: center;
+    color: rgb(109, 108, 108);
+    font-weight: 600;
+    font-family:okra light ;
+    font-weight: 100;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+#how1i{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 26%;
+    margin-top: 15%;
+    object-fit: cover;
+    height: 40%;
+    width: 50%;
+    border-radius: 50%;
+    background-color: rgb(246, 156, 156);
+}
+#how11{
+    height: 30%;
+    width: 40%;
+    border-radius: 50%;
+}
+#how2{
+    position: absolute;
+    bottom: -35%;
+    height: 43vh;
+    width: 18vw;
+    z-index: 2;
+    left: 41.5%;
+    background-color: white;
+}
+
+
+#how2 h2{
+    margin-top: 5%;
+    margin-left: 2%;
+    color: black;
+    font-weight: 600;
+}
+#how2 h4{
+    margin-top: 5%;
+    color: rgb(73, 73, 73);
+    font-weight: 600;
+    font-family:okra light ;
+    margin-left: 11%;
+}
+#how2 h5{
+    align-items: center;
+    display: flex;
+    text-align: center;
+    color: rgb(109, 108, 108);
+    font-weight: 600;
+    font-family:okra light ;
+    font-weight: 100;
+    margin-top: 3%;
+    margin-left: 12%;
+}
+#how2i{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 26%;
+    margin-top: 15%;
+    object-fit: cover;
+    height: 40%;
+    width: 50%;
+    border-radius: 50%;
+    background-color: rgb(244, 253, 189);
+}
+#how22{
+    height: 30%;
+    width: 40%;
+    border-radius: 50%;
+}
+#how3{
+    position: absolute;
+    bottom: -35%;
+    height: 43vh;
+    width: 18vw;
+    background-color: white;
+    z-index: 2;
+    left: 63%;
+}
+
+#how3 h2{
+    margin-top: 5%;
+    margin-left: 2%;
+    color: black;
+    font-weight: 600;
+}
+#how3 h4{
+    margin-top: 5%;
+    color: rgb(73, 73, 73);
+    font-weight: 600;
+    font-family:okra light ;
+    margin-left: 11%;
+}
+#how3 h5{
+    align-items: center;
+    display: flex;
+    text-align: center;
+    color: rgb(109, 108, 108);
+    font-weight: 600;
+    font-family:okra light ;
+    font-weight: 100;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+#how3i{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 26%;
+    margin-top: 15%;
+    object-fit: cover;
+    height: 40%;
+    width: 50%;
+    border-radius: 50%;
+    background-color: rgb(255, 235, 207);
+}
+#how33{
+    height: 30%;
+    width: 40%;
+    border-radius: 50%;
+}
+#sug{
+    position: relative;
+    height: 60%;
+    width: 100%;
+    background-color: black;
+    margin-top: 20%;
+}
+#imag{
+    position: absolute;
+    top: 10%;
+    right: 12%;
+    height: 80%;
+    width: 37%;
+    background-color: blueviolet;
+}
+#imag img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+#sug h1{
+    position: absolute;
+    color: rgb(250, 241, 241);
+    top: -7%;
+    left: -15%;
+}
+#question{
+    position: relative;
+    margin-top: 5%;
+    height: 50%;
+    width: 100%;
+ 
+}
+#question h1{
+    position: absolute;
+    left: 3.2%;
+}
+#ques{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 65%;
+    left: 20%;
+    height: 8vh;
+    width: 60vw;
+    
+    border: 1px solid rgb(227, 225, 225);
+    
+}
