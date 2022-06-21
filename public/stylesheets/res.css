@@ -250,7 +250,7 @@ nav button:nth-child(1){
 #why{
     margin-top: 3%;
     position: relative;
-    height: 30%;
+    height: 30vh;
     width: 100%;
     /* background-color: rgb(32, 30, 30); */
 }
@@ -357,11 +357,13 @@ nav button:nth-child(1){
   
 }
 #how img{
-    object-fit: cover;
+    object-fit: contain;
     height: 100%;
     width: 100%;
+    transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
     z-index: 1;
 }
+
 #how1{
     position: absolute;
     bottom: -35%;
@@ -462,6 +464,7 @@ nav button:nth-child(1){
 #how22{
     height: 30%;
     width: 40%;
+    object-fit: cover;
     border-radius: 50%;
 }
 #how3{
@@ -518,9 +521,20 @@ nav button:nth-child(1){
 #sug{
     position: relative;
     height: 60vh;
+    display: flex;
+    overflow: auto;
     width: 100%;
     background-color: black;
     margin-top: 20%;
+    scroll-snap-type: x mandatory;
+}
+.corosol{
+    scroll-snap-align: start;
+    flex-shrink: 0;
+   position: relative;
+    height: 100%;
+    width: 100%;
+    /* background-color: black; */
 }
 #imag{
     position: absolute;
