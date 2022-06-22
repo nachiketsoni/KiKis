@@ -39,40 +39,49 @@
 }
 nav{
     position: absolute;
-    height: 8%;
+    height: 10vh;
     top: 0%;
     width: 100%;
     z-index: 2;
-  
+    display: flex;
 }
-nav a h3{
+#left{
+    height: 100%;
+    width: 50%;
+}
+#left h1{
     font-size: 2vw;
-    margin-left: 12%;
-    margin-top: 0.5%;
-    color: orange;
-    font-family: oswald;
-    font-weight: 100;
-    text-decoration: underline;
-    
+    font-family:Didact Gothic;
+    color: rgb(255, 255, 255);
 }
-
-nav a h3 span{
-    font-family: cataline script;
-    color: whitesmoke;
+#right{
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+#right a{
     text-decoration: none;
-
+    color: white;
+    font-family: okra light;
+    margin-left:6%;
+}
+#right svg{
+    margin-left: 4%;
 }
 #text{
     height: 40%;
     width: 40%;
-    margin-left: 12%;
-    margin-top: 19%;
+    margin-left: 10%;
+    margin-top: 17%;
 }
 #text h1{
     margin-top: 2%;
     font-size: 4.2vw;
     color: whitesmoke;
-    font-family: Didact Gothic;
+    font-family: bebas neue;
 
     animation-name: neon 5s infinite;
     font-weight: 100;
@@ -91,7 +100,7 @@ nav a h3 span{
 }
 #text p{
     font-weight: 100;
-    color: rgb(176, 176, 176);
+    color: rgb(216, 215, 215);
     font-family: Didact Gothic;
 
 }
@@ -577,4 +586,13 @@ nav button:nth-child(1){
     
     border: 1px solid rgb(227, 225, 225);
     
+}
+#cars{
+    height: 10vh;
+    width: 100vw;
+}
+#volvo{
+    height: 10vh;
+    width: 100vw;
+    background-color: #ff3add;
 }
