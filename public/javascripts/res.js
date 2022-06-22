@@ -1,24 +1,26 @@
+const scroll = new LocomotiveScroll({
+      el: document.querySelector('#main'),
+      smooth: true
+  });
+
 var cards = document.querySelectorAll('.cards')
 var sticker = document.querySelectorAll('.sticker')
 let flag =  0
-let b = 0
-for(let i = 0; i < cards.length; i++){
+let i =0
+while(i < cards.length){
     console.log(i)
-    b = i
+    let b = i
     cards[b].addEventListener('mouseover', function(e){
     
 
-            sticker[b].style.transform = "scale(1.5)"
+            cards[b].style.transform = "scale(1.2)"
     })
-    // cards[i].addEventListener('mouseout', function(e){
-    
-
-    //         sticker[i].style.transform = "scale(1)"
+    cards[b].addEventListener('mouseout', function(e){
+                
         
-    // })
+        cards[b].style.transform = "scale(1)"
+        
+    })
+    i++
 }
-    const scroll = new LocomotiveScroll({
-          el: document.querySelector('#main'),
-          smooth: true
-      });
       

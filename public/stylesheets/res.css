@@ -344,6 +344,9 @@ nav button:nth-child(1){
     font-family: okra light ;
     color: gray;
 }
+.cards{
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
 #how{
     position: relative;
     height: 50%;
@@ -575,6 +578,20 @@ nav button:nth-child(1){
     height: 8vh;
     width: 60vw;
     
-    border: 1px solid rgb(227, 225, 225);
+    border:none;
     
+}
+#ques select{
+    padding: 20px;
+    width: 100%;
+    outline: none;
+    border: none;
+}
+#ques select *{
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 50vh;
+    padding: 20px;
+    background: rgb(249, 249, 249);
 }
