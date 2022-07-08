@@ -570,7 +570,7 @@ nav button:nth-child(1){
 #question{
     position: relative;
     margin-top: 5%;
-    height: 50vh;
+    height: 80vh;
     width: 100%;
  
 }
@@ -614,4 +614,18 @@ nav button:nth-child(1){
     padding: 20px;
     background: rgb(249, 249, 249);
 
+}
+#about{
+    height: 50vh;
+    width: 100%;
+    position: relative;
+    background-color: #000; 
+    font-family: Bandeins Stange Variable;
+    
+}
+#about h1{
+    font-weight: Regular Extended Full;
+    color: #fff;
+    position: absolute;
+    top: 30%;
 }
