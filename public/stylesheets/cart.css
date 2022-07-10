@@ -2,8 +2,85 @@
           padding: 0;
           margin: 0%;
           box-sizing: border-box;
-          font-family: gilroy;
+          font-family: gilro;
 }
+
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-REGULAR.OTF);
+          font-weight: 500;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-MEDIUM.OTF);
+          font-weight: 600;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-LIGHT.OTF);
+          font-weight: 400;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-BOLD.OTF);
+          font-weight: 700;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-BLACK.OTF);
+          font-weight: 900;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-THIN.OTF);
+          font-weight: 100;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-LIGHT.OTF);
+          font-weight: 100;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-THIN.OTF);
+          font-weight: 200;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-REGULAR.OTF);
+          font-weight: 300;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-MEDIUM.OTF);
+          font-weight: 400;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-SEMIBOLD.OTF);
+          font-weight: 500;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-BOLD.OTF);
+          font-weight: 600;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-EXTRABOLD.OTF);
+          font-weight: 700;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-HEAVY.OTF);
+          font-weight: 800;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-BLACK.OTF);
+          font-weight: 900;
+}
+
 
 html,body{
           width: 100%;
@@ -15,7 +92,7 @@ html,body{
           height: 100%;
           position: relative;
           display: flex;
-          /* overflow: hidden; */
+          overflow: hidden;
 }
 a{
           text-decoration: none;
@@ -28,11 +105,11 @@ a{
           padding: 30px;
 }
 .left>a{
-          font-family: aeonik;
+          font-family: aeon;
           font-size: 1vw;
           align-items: center;
           display: flex;
-          /* font-weight: 500; */
+          font-weight: 500;
 }
 .left>a i{
           font-size: 1.7vw;
@@ -41,8 +118,8 @@ a{
 .left>h1{
           font-size: 5vw;
           margin-top: 3vw;
-          font-weight: 300;
-          font-family: aeonik;
+          font-weight: 400;
+          font-family: aeon;
 }
 .box{
           width: 100%;
@@ -74,7 +151,7 @@ a{
 .sec h3{
           margin-left: 1vw;
           margin-right: 1vw;
-          font-family: aeonik;
+          font-family: aeon;
           font-weight: 300;
 }
 .sec i{
@@ -150,7 +227,7 @@ a{
           font-size: 3vw;
           margin-top: 5vw;
           font-weight: 400;
-          font-family: aeonik;
+          font-family: aeon;
           margin-left: 30px;
 }
 .calc{
@@ -166,7 +243,7 @@ a{
           justify-content: space-between;
 }
 .cats h2{
-          font-family: aeonik;
+          font-family: aeon;
           font-size: 1.2vw;
           font-weight: 600;
           margin-top: 1vw;

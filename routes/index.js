@@ -18,5 +18,11 @@ router.get('/cart', function(req, res) {
 router.get('/checkout', function(req, res) {
   res.render('checkout');
 });
+router.get('/thankyou', function(req, res) {
+  res.render('Thankyou');
+});
+router.get('/back', function(req, res) {
+  res.redirect('back');
+});
 
 module.exports = router;
