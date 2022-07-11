@@ -16,16 +16,16 @@ router.get('/res', function (req, res) {
 router.get('/order', function (req, res) {
   res.render('order');
 });
-router.get('/cart', function(req, res) {
+router.get('/cart', function (req, res) {
   res.render('cart');
 });
-router.get('/checkout', function(req, res) {
+router.get('/checkout', function (req, res) {
   res.render('checkout');
 });
-router.get('/thankyou', function(req, res) {
+router.get('/thankyou', function (req, res) {
   res.render('Thankyou');
 });
-router.get('/back', function(req, res) {
+router.get('/back', function (req, res) {
   res.redirect('back');
 });
 
