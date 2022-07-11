@@ -16,6 +16,18 @@ router.get('/res', function (req, res) {
 router.get('/order', function (req, res) {
   res.render('order');
 });
+router.get('/cart', function(req, res) {
+  res.render('cart');
+});
+router.get('/checkout', function(req, res) {
+  res.render('checkout');
+});
+router.get('/thankyou', function(req, res) {
+  res.render('Thankyou');
+});
+router.get('/back', function(req, res) {
+  res.redirect('back');
+});
 
 router.post('/register', function (req, res) {
   var newUser = new userModel({

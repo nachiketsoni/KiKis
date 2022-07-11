@@ -1,0 +1,284 @@
+*{
+          padding: 0;
+          margin: 0%;
+          box-sizing: border-box;
+          font-family: gilro;
+}
+
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-REGULAR.OTF);
+          font-weight: 500;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-MEDIUM.OTF);
+          font-weight: 600;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-LIGHT.OTF);
+          font-weight: 400;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-BOLD.OTF);
+          font-weight: 700;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-BLACK.OTF);
+          font-weight: 900;
+}
+@font-face {
+          font-family: 'aeon';
+          src: url(../fonts/AEONIK-THIN.OTF);
+          font-weight: 100;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-LIGHT.OTF);
+          font-weight: 100;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-THIN.OTF);
+          font-weight: 200;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-REGULAR.OTF);
+          font-weight: 300;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-MEDIUM.OTF);
+          font-weight: 400;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-SEMIBOLD.OTF);
+          font-weight: 500;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-BOLD.OTF);
+          font-weight: 600;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-EXTRABOLD.OTF);
+          font-weight: 700;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-HEAVY.OTF);
+          font-weight: 800;
+}
+@font-face {
+          font-family: 'gilro';
+          src: url(../fonts/gilroy/GILROY-BLACK.OTF);
+          font-weight: 900;
+}
+
+
+html,body{
+          width: 100%;
+          height: 100%;
+          
+}
+#main{
+          width: 100%;
+          height: 100%;
+          position: relative;
+          display: flex;
+          overflow: hidden;
+}
+a{
+          text-decoration: none;
+          color: black;
+
+}
+.left{
+          width: 70%;
+          height: 100%;  
+          padding: 30px;
+}
+.left>a{
+          font-family: aeon;
+          font-size: 1vw;
+          align-items: center;
+          display: flex;
+          font-weight: 500;
+}
+.left>a i{
+          font-size: 1.7vw;
+}
+
+.left>h1{
+          font-size: 5vw;
+          margin-top: 3vw;
+          font-weight: 400;
+          font-family: aeon;
+}
+.box{
+          width: 100%;
+          height: 75%;
+          /* background-color: aqua; */
+          /* overflow: hidden; */
+}
+.ctrg{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 10%;
+          /* padding-right: 10%; */
+          margin-top: 2vw;
+}
+.ctrg h4{
+          color: #b7b7b7;
+          font-weight: 500;
+          
+}
+.sec{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          /* background-color:    red; */
+}
+.sec h3{
+          margin-left: 1vw;
+          margin-right: 1vw;
+          font-family: aeon;
+          font-weight: 300;
+}
+.sec i{
+          font-size: 1.5vw;
+          cursor: pointer;
+}
+.side{
+          display: flex;
+          width: 45%;
+          justify-content: space-between;
+          align-items: center;
+}
+
+.item{
+        
+          width: 100%;
+          height: 90%;
+          overflow: auto;
+          /* background-color: red; */
+}
+.item::-webkit-scrollbar{
+          width: 5px;
+          background-color: #f5f5f5;
+}
+.item::-webkit-scrollbar-thumb{
+          background-color: #b7b7b7;
+          border-radius: 100px;
+}
+.itm{
+          width: 100%;
+          height: 5vw;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          margin-top: 2vw;
+          /* background-color: aqua; */
+          cursor: default;
+}
+.lside {
+          width: 55%;
+          height: 100%;
+          display: flex;
+          /* justify-content: space-between; */
+          align-items: center;
+          
+          cursor: default;
+}
+.lside img{
+          height: 100%;
+          max-width: 7vw;
+          object-fit: cover;
+          /* background-color: antiquewhite; */
+}
+.lside h2{
+         margin-left: 5vw;
+         font-weight: 400;
+}
+
+
+
+
+
+
+
+.right{
+          width: 30%;
+          height: 100%;
+          position: relative;
+          background-color: #F6F6F6;
+}
+.right>h1{
+          font-size: 3vw;
+          margin-top: 5vw;
+          font-weight: 400;
+          font-family: aeon;
+          margin-left: 30px;
+}
+.calc{
+          width: 100%;
+          height: 10%;
+     
+          margin-top: 2vw;
+}
+.cats{    
+          width: 100%;
+          padding:  0 30px;
+          display: flex;
+          justify-content: space-between;
+}
+.cats h2{
+          font-family: aeon;
+          font-size: 1.2vw;
+          font-weight: 600;
+          margin-top: 1vw;
+          color: #3f3f3f;
+}
+.total{
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          
+}
+.total .cats h2{
+          font-size: 1.5vw;
+          font-weight: 600;
+          margin-top: 1vw;
+          color: #3f3f3f;
+}
+.cats h2:nth-child(1){
+          font-weight: 400;
+}
+.total form{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+}
+.total button{
+          width: 85%;
+          height: 4vw;
+          background-color: #000000;
+          border: none;
+          border-radius: 5px;
+          font-size: 1.3vw;
+          font-weight: 500;
+          color: white;
+          margin-top: 3vw;
+          margin-bottom: 2vw;
+          cursor: pointer;
+}
