@@ -71,7 +71,7 @@
                <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80" alt="">
             </div>
           </div>
-          <form action="/login">
+          <form action="/login" method="post">
             <input type="text" placeholder="Email" required>
             <input type="password" placeholder="Password" required>
             
@@ -93,13 +93,13 @@
                <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80" alt="">
             </div>
           </div>
-          <form action="/ragister">
-            <input type="tel" placeholder="Phone number" pattern="[0-9]{10}" required>
-            <input type="text" placeholder="Name" required>
-            <input type="text" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
+          <form action="/register" method="post">
+            <input type="tel" name="number" placeholder="Phone number" pattern="[0-9]{10}" required>
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
             
-            <button id="continue">
+            <button id="continue" type="submit">
               <h3>CONTINUE</h3>
             </button>
           </form>
