@@ -1,83 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-          <link rel="stylesheet" href="../stylesheets/checkout.css">
-          <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/checkout.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+
 <body>
-          <div id="main">
-                    <div class="left">
-                              <a href="/back"><i class="ri-arrow-left-s-line"></i> Back to Store</a>
-                              
-                              <h4>Checkout <br> <div class="l"></div></h4>
+    <div id="main">
+        <div class="left">
+            <a href="/back"><i class="ri-arrow-left-s-line"></i> Back to Store</a>
 
-                    </div>
-                    <div class="center">
-                              <h1 class="txtanim" >Where would you like your <br> <span class="txtanim">order sent ?</span></h1>
-                              <form action="" method="post">
-                                        <select class="txtanim" name="" id="">
-                                                  <option value="">Meet me at door</option>
-                                                  <option value="">Meet outside</option>
-                                                  <option value="">Leave at door</option>
-                                        </select> <br>
-                                        <input class="txtanim" type="text" name="address" placeholder="Address">
-                                        <div  class="do txtanim"><input type="text" name="city" placeholder="City"><input type="text" name="state" placeholder="State"></div>
-                                        <input class="txtanim" type="text" name="instruction" placeholder="Add Delivery Instruction">
-                                        <div class="do txtanim"><input type="text" name="address" placeholder="Pincode"><input type="tel" name="number" placeholder="Phone Number"></div>
-                                        
-                              </form>
-                    </div>
-                    <div class="right">
-                              <h1>Summary</h1>
-                              <div class="calc">
-                                        <div class="cats"><h2>Subtotal</h2> <h2>$252.00</h2></div>
-                                        <div class="cats"><h2>Shiping</h2> <h2>$00.00</h2></div>
-                                        <div class="cats"><h2>Tax</h2> <h2>$252.00</h2></div>
-                              </div>
-                              <div class="total">
-                                        <div class="cats"><h2>Total</h2> <h2>$252.00</h2></div>
-                                        <form action="/Thankyou" method="GEt">
+            <h4>Checkout <br>
+                <div class="l"></div>
+            </h4>
 
-                                                  <button> <h3>Place Order</h3> <img id="img" src="../images/motorcycle.png" alt=""> </button>
-                                        </form>
-                              </div>
-                    </div>
-          </div>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-          <script>
+        </div>
+        <div class="center">
+            <h1 class="txtanim">Where would you like your <br> <span class="txtanim">order sent ?</span></h1>
+            <form action="" method="post">
+                <select class="txtanim" name="" id="">
+                    <option value="">Meet me at door</option>
+                    <option value="">Meet outside</option>
+                    <option value="">Leave at door</option>
+                </select> <br>
+                <input class="txtanim" type="text" name="address" placeholder="Address">
+                <div class="do txtanim"><input type="text" name="city" placeholder="City"><input type="text"
+                        name="state" placeholder="State"></div>
+                <input class="txtanim" type="text" name="instruction" placeholder="Add Delivery Instruction">
+                <div class="do txtanim"><input type="text" name="address" placeholder="Pincode"><input type="tel"
+                        name="number" placeholder="Phone Number"></div>
 
-                    gsap.from('.txtanim',{
-                              stagger:.2,
-                              duration: .4,
-                              y: 100,
-                              opacity: 0,
-                    
-                    })
-                    document.querySelector('.total button').addEventListener('mouseenter', function(e){
-                              var tl =gsap.timeline()
-                              tl
-                              // .fromTo("#img", {opacity: 0, left:'-10%',duration: 0.00005}, {opacity: 1, left:'50%'});
-                              // .to('#img',{opacity: 0, left:'-10%',duration: 0.00005})
-                              .to('#img',{opacity: 1, left:'50%',ease:Power2.easeInOut})
-                              document.querySelector('.total button h3').style.opacity = '0';
-                    });
-                    document.querySelector('.total button').addEventListener('mouseleave', function(e){
-                              var tl =gsap.timeline()
-                              .to("#img",{left:'110%'})
-                              .to("#img", {opacity: 0, duration: 0.00005})
-                              .to('.total button h3', {opacity: 1})
-                              .to("#img", {left:'-10%', duration: 0.00005});
+            </form>
+        </div>
+        <div class="right">
+            <h1>Summary</h1>
+            <div class="calc">
+                <div class="cats">
+                    <h2>Subtotal</h2>
+                    <h2>$252.00</h2>
+                </div>
+                <div class="cats">
+                    <h2>Shiping</h2>
+                    <h2>$00.00</h2>
+                </div>
+                <div class="cats">
+                    <h2>Tax</h2>
+                    <h2>$252.00</h2>
+                </div>
+            </div>
+            <div class="total">
+                <div class="cats">
+                    <h2>Total</h2>
+                    <h2>$252.00</h2>
+                </div>
+                <form action="/Thankyou" method="GEt">
+
+                    <button>
+                        <h3>Place Order</h3> <img id="img" src="../images/motorcycle.png" alt="">
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script>
+
+        gsap.from('.txtanim', {
+            stagger: .2,
+            duration: .4,
+            y: 100,
+            opacity: 0,
+
+        })
+        document.querySelector('.total button').addEventListener('mouseenter', function (e) {
+            var tl = gsap.timeline()
+            tl
+                // .fromTo("#img", {opacity: 0, left:'-10%',duration: 0.00005}, {opacity: 1, left:'50%'});
+                // .to('#img',{opacity: 0, left:'-10%',duration: 0.00005})
+                .to('#img', { opacity: 1, left: '50%', ease: Power2.easeInOut })
+            document.querySelector('.total button h3').style.opacity = '0';
+        });
+        document.querySelector('.total button').addEventListener('mouseleave', function (e) {
+            var tl = gsap.timeline()
+                .to("#img", { left: '110%' })
+                .to("#img", { opacity: 0, duration: 0.00005 })
+                .to('.total button h3', { opacity: 1 })
+                .to("#img", { left: '-10%', duration: 0.00005 });
 
 
-                              // document.querySelector('#img').style.left= `-10%`;
+            // document.querySelector('#img').style.left= `-10%`;
 
-                    });
-                    
-          </script>
+        });
+
+    </script>
 </body>
+
 </html>
