@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var userModel = require('./users');
 var passport = require('passport');
+
 const localStrategy = require('passport-local');
 passport.use(new localStrategy(userModel.authenticate()));
 
@@ -33,7 +34,7 @@ router.post('/register', function (req, res) {
   var newUser = new userModel({
     username: req.body.email,
     name: req.body.name,
-    mobilenumber: req.body.number,
+    number: req.body.number,
   })
   userModel.register(newUser, req.body.password)
     .then(function (u) {
