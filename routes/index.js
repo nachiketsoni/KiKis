@@ -6,14 +6,14 @@ const localStrategy = require('passport-local');
 passport.use(new localStrategy(userModel.authenticate()));
 
 /* GET home page. */
-router.get('/', function (req, res) {
+router.get('/', checkLoggedIn, function (req, res) {
   res.render('index');
 });
 
 router.get('/res', function (req, res) {
   res.render('res');
 });
-router.get('/order', function (req, res) {
+router.get('/order',isLoggedIn, function (req, res) {
   res.render('order');
 });
 router.get('/cart', function (req, res) {
@@ -65,7 +65,7 @@ function isLoggedIn(req, res, next) {
 }
 function checkLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
-    res.redirect('/profile');
+    res.redirect('/order');
   }
   else {
     return next();
