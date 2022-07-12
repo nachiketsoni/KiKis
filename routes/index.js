@@ -33,7 +33,7 @@ router.post('/register', function (req, res) {
   var newUser = new userModel({
     username: req.body.username,
     name: req.body.name,
-    mobilenumber: req.body.number,
+    mobilenumber: req.body.number
   })
   userModel.register(newUser, req.body.password)
     .then(function (u) {
