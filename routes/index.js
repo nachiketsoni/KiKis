@@ -47,7 +47,7 @@ router.post('/register', function (req, res) {
   userModel.register(newUser, req.body.password)
     .then(function (u) {
       passport.authenticate('local')(req, res, function () {
-        res.redirect('/profile');
+        res.redirect('/order');
       })
     })
 });
