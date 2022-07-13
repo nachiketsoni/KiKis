@@ -47,7 +47,8 @@
     var span1 = document.querySelector('#span1');
     var span2 = document.querySelector('#span2');
     var log2 = document.querySelector('#log2');
-sign.addEventListener("click",function(elem){
+    var order = document.querySelector('#order');
+order.addEventListener("click",function(elem){
 let tl = gsap.timeline()
     
   tl
@@ -113,4 +114,12 @@ cross2.addEventListener('click', function(){
     
 });
 })()
+
+var log = document.querySelector('#log');
+
+log.addEventListener("click",function(){
+    window.onclick == log
+        log.style.display = "none";
+    });
+
 

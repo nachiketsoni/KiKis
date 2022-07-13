@@ -21,14 +21,6 @@
         background-color: rgb(255, 255, 255);
     }
 
-    nav {
-        top: 0%;
-        min-height: 10vh;
-        max-width: 100vw;
-        background-color: rgba(156, 73, 73, 0.272);
-
-    }
-
     #left {
         height: 100vh;
         width: 100vw;
@@ -41,9 +33,11 @@
     }
 
     #adds {
+        display: flex;
+      
         height: 40%;
         width: 100%;
-
+        position: relative;
         margin-top: 4%;
         background-color: rgb(0, 0, 0);
 
@@ -123,19 +117,22 @@
         top: 5%;
         color: whitesmoke;
     }
-    #time{
+
+    #time {
         position: relative;
         left: 40%;
         top: -50%;
         color: whitesmoke;
         color: black;
-        
+
     }
-    #time h6{
+
+    #time h6 {
         font-size: 1vw;
         font-weight: 100;
     }
-    #paisa{
+
+    #paisa {
         position: relative;
         height: 2vh;
         width: 4vw;
@@ -143,13 +140,15 @@
         top: -150%;
         color: whitesmoke;
         color: black;
-  
-        
+
+
     }
-    #paisa h6{
+
+    #paisa h6 {
         font-size: 1.1vw;
         font-weight: 100;
     }
+
     .card .card_title h6 {
 
         border-radius: 0px 0px 40px 40px;
@@ -162,18 +161,21 @@
         color: rgb(128, 128, 128);
         font-size: 1.2vw;
     }
-    #line{
+
+    #line {
         height: 0.1vh;
         margin-top: -11%;
         width: 90%;
         background-color: rgb(199, 199, 199);
     }
-    #welcome{
+
+    #welcome {
         font-size: 0.9vw;
         color: rgb(158, 158, 158);
         margin-top: 5%;
     }
-    #welcome a{
+
+    #welcome a {
         margin-left: 30%;
         text-decoration: none;
     }
@@ -196,21 +198,165 @@
             flex-direction: column;
         }
     }
+
+
+    nav {
+        position: fixed;
+        height: 8vh;
+        top: 0%;
+        width: 100%;
+        z-index: 2;
+        display: flex;
+        background-color: rgb(255, 255, 255);
+    }
+
+    #lef {
+        height: 100%;
+        width: 50%;
+    }
+
+    #lef h1 {
+        font-size: 2vw;
+        font-family: roboto black;
+        color: rgb(53, 0, 0);
+       
+        margin-left: 21%;
+        margin-top: 1.8%;
+    }
+
+    #lef a {
+        text-decoration: none;
+        color: rgb(53, 0, 0);
+    }
+
+    #righ {
+        margin-left: 13%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+    }
+
+    #righ a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-family: okra light;
+        margin-left: 6%;
+        margin-top: -1%;
+        font-weight: 1000;
+    }
+
+    #righ svg {
+        margin-left: 4%;
+    }
+    #add{
+        position: absolute;
+        top: 10%;
+      
+        height: 80%;
+        width: 20%;
+        background-color: red;
+        border-radius: 22px;
+        overflow: hidden;
+        margin-left: 9%;
+    }
+    #add img{
+        height: 100%;
+        width: 100%;
+    }
+    #add1{
+        position: absolute;
+        top: 10%;
+        left: 30%;
+        height: 80%;
+        width: 20%;
+        background-color: red;
+        border-radius: 22px;
+        overflow: hidden;
+        
+    }
+    #add1 img{
+        height: 100%;
+        width: 100%;
+    }
+    #add2{
+        position: absolute;
+        top: 10%;
+        left: 51%;
+        height: 80%;
+        width: 20%;
+        background-color: red;
+        border-radius: 22px;
+        overflow: hidden;
+        
+    }
+    #add2 img{
+        height: 100%;
+        width: 100%;
+    }
+    #add3{
+        position: absolute;
+        top: 10%;
+        left: 72%;
+        height: 80%;
+        width: 20%;
+        background-color: red;
+        border-radius: 22px;
+        overflow: hidden;
+        
+    }
+    #add3 img{
+        height: 100%;
+        width: 100%;
+    }
 </style>
 
 <body>
     <div id="main">
-        <nav></nav>
+        <nav>
+            <div id="lef">
+                <a href="/">
+                    <h1 style="color:orange ;">KiKi</h1>
+                </a>
+            </div>
+            <div id="righ">
+                <a href="/res">ADD RESTURANT</a>
+                <a href="">ABOUT US</a>
+                <a href="/order">ORDER</a>
+                <a href="/cart">CART</a>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path
+                        d="M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM12 11a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zm-4.473 5h8.946a4.5 4.5 0 0 0-8.946 0z"
+                        fill="rgba(255,255,255,1)" />
+                </svg>
+
+            </div>
+        </nav>
         <div id="box1">
             <div id="left">
                 <div id="adds">
-
+                <div id="add">
+                    <img src="https://i.pinimg.com/originals/fb/ff/3c/fbff3c813382a2c474538578ed7e502b.jpg" alt="">
+                </div>
+                <div id="add1">
+                    <img src="https://i.pinimg.com/564x/d3/2f/b1/d32fb13fa0784e1d44d51fc8ea1e4013.jpg" alt="">
+                </div>
+                <div id="add2">
+                    <img src="https://i.pinimg.com/564x/b0/be/47/b0be470b38b8b710f223aff3cfec4833.jpg" alt="">
+                </div>
+                <div id="add3">
+                    <img src="https://i.pinimg.com/564x/ec/52/76/ec5276f89dba2df160576200f7408436.jpg" alt="">
+                </div>
                 </div>
                 <div id="foodlist">
                     <div class="food">
                         <div class="cards-list">
                             <div class="card 1">
-                                <div class="card_image"> <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80" /> </div>
+                                <div class="card_image"> <img
+                                        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80" />
+                                </div>
                                 <div class="card_title title-white">
                                     <p>Chikken tikka</p>
                                     <h6>hameeks</h6>
@@ -230,7 +376,7 @@
                                         <h6>₹200</h6>
                                     </div>
                                     <div id="line"></div>
-                                    <h5 id="welcome"><a href="">QUICK VIEW </a></h5>
+                                    <h5 id="welcome"><a href="/checkout">QUICK VIEW </a></h5>
                                 </div>
                             </div>
                         </div>
@@ -238,7 +384,9 @@
                     <div class="food">
                         <div class="cards-list">
                             <div class="card 1">
-                                <div class="card_image"> <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" /> </div>
+                                <div class="card_image"> <img
+                                        src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+                                </div>
                                 <div class="card_title title-white">
                                     <p>Mix veG</p>
                                     <h6>hameeks</h6>
@@ -266,7 +414,9 @@
                     <div class="food">
                         <div class="cards-list">
                             <div class="card 1">
-                                <div class="card_image"> <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" /> </div>
+                                <div class="card_image"> <img
+                                        src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+                                </div>
                                 <div class="card_title title-white">
                                     <p>Hara Bhara khana</p>
                                     <h6>Bekaner</h6>
@@ -294,7 +444,9 @@
                     <div class="food">
                         <div class="cards-list">
                             <div class="card 1">
-                                <div class="card_image"> <img src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" /> </div>
+                                <div class="card_image"> <img
+                                        src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+                                </div>
                                 <div class="card_title title-white">
                                     <p>Apna Burger</p>
                                     <h6>Kuldeeps</h6>
@@ -322,7 +474,9 @@
                     <div class="food">
                         <div class="cards-list">
                             <div class="card 1">
-                                <div class="card_image"> <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80" /> </div>
+                                <div class="card_image"> <img
+                                        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80" />
+                                </div>
                                 <div class="card_title title-white">
                                     <p>Chikken tikka</p>
                                     <h6>hameeks</h6>
@@ -350,7 +504,9 @@
                     <div class="food">
                         <div class="cards-list">
                             <div class="card 1">
-                                <div class="card_image"> <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=80" /> </div>
+                                <div class="card_image"> <img
+                                        src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=80" />
+                                </div>
                                 <div class="card_title title-white">
                                     <p>Anti jalota</p>
                                     <h6>hameeks</h6>
@@ -378,7 +534,9 @@
                     <div class="food">
                         <div class="cards-list">
                             <div class="card 1">
-                                <div class="card_image"> <img src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" /> </div>
+                                <div class="card_image"> <img
+                                        src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+                                </div>
                                 <div class="card_title title-white">
                                     <p>Burger</p>
                                     <h6>hameeks</h6>
@@ -406,7 +564,9 @@
                     <div class="food">
                         <div class="cards-list">
                             <div class="card 1">
-                                <div class="card_image"> <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=80" /> </div>
+                                <div class="card_image"> <img
+                                        src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=80" />
+                                </div>
                                 <div class="card_title title-white">
                                     <p>Anti jalota</p>
                                     <h6>hameeks</h6>
@@ -431,7 +591,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
 
 
 

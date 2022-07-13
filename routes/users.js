@@ -3,7 +3,7 @@ const plm = require('passport-local-mongoose');
 mongoose.connect('mongodb://localhost/KiKi');
 
 const userSchema = new mongoose.Schema({
-  mobilenumber: String,
+  number: String,
   name: String,
   username: String,
   password: String,

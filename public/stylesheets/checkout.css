@@ -2,7 +2,7 @@
           padding: 0;
           margin: 0%;
           box-sizing: border-box;
-          font-family: gilroy;
+          font-family: gilro;
 }
 
 @font-face {
@@ -106,14 +106,14 @@ a{
           position: relative;
 }
 .left>a{
-          font-family: aeonik;
+          font-family: aeon;
           font-size: 1vw;
           align-items: center;
           display: flex;
           /* font-weight: 500; */
 }
 .left>h4{
-          font-family: aeonik;
+          font-family: aeon;
           font-size: 1.5vw;
           font-weight: 400;
           align-items: center;
@@ -178,7 +178,7 @@ transform-origin:left;
           margin-bottom: 5vw;
           font-weight: 400;
 
-          font-family: aeonik;
+          font-family: aeon;
 }
 
 .center form{
@@ -200,7 +200,7 @@ form select{
           background-image: url();
           outline: none;
           font-size: 1.2vw;
-          font-family: aeonik;
+          font-family: aeon;
           font-weight: 400;
           padding: 0 3vw;
           margin-bottom: 5vw;
@@ -219,7 +219,7 @@ select option{
           border-right: none;
           font-size: .8vw;
           outline: none;
-          font-family: aeonik;
+          font-family: aeon;
           font-weight: 300;
           margin-bottom: 1vw; 
 }
@@ -233,7 +233,7 @@ select option{
           border-left: none;
           border-right: none;
           font-size: 1.2vw;
-          font-family: aeonik;
+          font-family: aeon;
           font-weight: 300;
           margin-bottom: 1vw;
 }
@@ -258,7 +258,7 @@ select option{
           font-size: 3vw;
           margin-top: 5vw;
           font-weight: 400;
-          font-family: aeonik;
+          font-family: aeon;
           margin-left: 30px;
 }
 .calc{
@@ -274,7 +274,7 @@ select option{
           justify-content: space-between;
 }
 .cats h2{
-          font-family: aeonik;
+          font-family: aeon;
           font-size: 1.2vw;
           font-weight: 600;
           margin-top: 1vw;
