@@ -1,9 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var userModel = require('./users');
-var passport = require('passport');
-var userModel=require('./users');
+const express = require('express');
+const router = express.Router();
 var orderModel=require('./order');
+const userModel = require('./users');
+const passport = require('passport');
 const razorpay = require('razorpay');
 
 const localStrategy = require('passport-local');
@@ -15,34 +14,34 @@ const instance = new razorpay({
 });
 
 /* GET home page. */
-router.get('/', function (req, res) {
+router.get('/', checkLoggedIn, function (req, res) {
   res.render('index');
 });
 
 router.get('/res', function (req, res) {
   res.render('res');
 });
-router.get('/order', function (req, res) {
+router.get('/order',isLoggedIn, function (req, res) {
   res.render('order');
 });
-router.get('/cart', function(req, res) {
+router.get('/cart', function (req, res) {
   res.render('cart');
 });
-router.get('/checkout', function(req, res) {
+router.get('/checkout', function (req, res) {
   res.render('checkout');
 });
-router.get('/thankyou', function(req, res) {
+router.get('/thankyou', function (req, res) {
   res.render('Thankyou');
 });
-router.get('/back', function(req, res) {
+router.get('/back', function (req, res) {
   res.redirect('back');
 });
 
 router.post('/register', function (req, res) {
   var newUser = new userModel({
-    username: req.body.email,
+    username: req.body.username,
     name: req.body.name,
-    number: req.body.number,
+    mobilenumber: req.body.number
   })
   userModel.register(newUser, req.body.password)
     .then(function (u) {
@@ -74,7 +73,7 @@ function isLoggedIn(req, res, next) {
 }
 function checkLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
-    res.redirect('/profile');
+    res.redirect('/order');
   }
   else {
     return next();
