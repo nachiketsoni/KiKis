@@ -2,9 +2,17 @@ var express = require('express');
 var router = express.Router();
 var userModel = require('./users');
 var passport = require('passport');
+var userModel=require('./users');
+var orderModel=require('./order');
+const razorpay = require('razorpay');
 
 const localStrategy = require('passport-local');
 passport.use(new localStrategy(userModel.authenticate()));
+
+const instance = new razorpay({
+  key_id: 'rzp_test_hZUEKNvCfMICwO',
+  key_secret: 'dd537sW0c6HggaDgShToZCR9',
+});
 
 /* GET home page. */
 router.get('/', function (req, res) {
