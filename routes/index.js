@@ -4,6 +4,20 @@ var orderModel=require('./order');
 const userModel = require('./users');
 const passport = require('passport');
 const razorpay = require('razorpay');
+const multer = require('multer');
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images')
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 10000)
+    cb(null, file.fieldname + '-' + uniqueSuffix + file.originalname)
+  }
+})
+
+const upload = multer({ storage: storage })
 
 const localStrategy = require('passport-local');
 passport.use(new localStrategy(userModel.authenticate()));
@@ -36,6 +50,13 @@ router.get('/thankyou', function (req, res) {
 router.get('/back', function (req, res) {
   res.redirect('back');
 });
+router.get('/uploadfood', function (req, res) {
+  res.render('uploadfood');
+});
+
+// router.get('/addfood', function (req, res) {
+//   userModel.findOne({ username: })
+// });
 
 router.post('/register', function (req, res) {
   var newUser = new userModel({

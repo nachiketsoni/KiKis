@@ -45,6 +45,7 @@
 
     .food {
         margin-left: 1.5%;
+        margin-top: 3%;
     }
 
     #foodlist {
@@ -82,13 +83,16 @@
         height: 60%;
         padding: 20px 20px;
         overflow: hidden;
-        border-radius: 22px;
+       
+        
     }
 
     .card .card_image img {
         height: 100%;
         width: 100%;
         overflow: hidden;
+        border-radius: 22px;
+        
     }
 
     .card .card_title {
@@ -216,12 +220,12 @@
     }
 
     #lef h1 {
-        font-size: 2vw;
+        font-size: 1.6vw;
         font-family: roboto black;
         color: rgb(53, 0, 0);
        
         margin-left: 21%;
-        margin-top: 1.8%;
+        margin-top: 2.3%;
     }
 
     #lef a {
@@ -243,7 +247,7 @@
         color: rgb(0, 0, 0);
         font-family: okra light;
         margin-left: 6%;
-        margin-top: -1%;
+        margin-top: -0%;
         font-weight: 1000;
     }
 
@@ -310,6 +314,18 @@
         height: 100%;
         width: 100%;
     }
+    #lef input{
+        position: absolute;
+        top: 22%;
+        left: 15%;
+        height: 5vh;
+        width: 26vw;
+        padding: 0 15px;
+        border-radius: 22px;
+        border: 1px solid orange;
+    }
+   
+   
 </style>
 
 <body>
@@ -317,14 +333,18 @@
         <nav>
             <div id="lef">
                 <a href="/">
+                  
                     <h1 style="color:orange ;">KiKi</h1>
                 </a>
+                <form action="">
+                    <input type="search" placeholder="Search for foods">
+                </form>
             </div>
             <div id="righ">
                 <a href="/res">ADD RESTURANT</a>
-                <a href="">ABOUT US</a>
-                <a href="/order">ORDER</a>
+                <a href="/uploadfood">UPLOAD FOODS</a>
                 <a href="/cart">CART</a>
+                <a href="/logout">LOGOUT</a>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                     <path fill="none" d="M0 0h24v24H0z" />
                     <path
