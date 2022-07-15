@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var orderModel=require('./order');
+var orderModel = require('./order');
 const userModel = require('./users');
 const passport = require('passport');
 const razorpay = require('razorpay');
@@ -21,7 +21,7 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.get('/res', function (req, res) {
   res.render('res');
 });
-router.get('/order',isLoggedIn, function (req, res) {
+router.get('/order', isLoggedIn, function (req, res) {
   res.render('order');
 });
 router.get('/cart', function (req, res) {
