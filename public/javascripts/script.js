@@ -48,6 +48,22 @@
     var span2 = document.querySelector('#span2');
     var log2 = document.querySelector('#log2');
     var order = document.querySelector('#order');
+
+sign.addEventListener("click",function(elem){
+let tl = gsap.timeline()
+    
+  tl
+  .to(log,{
+      display: 'initial',
+    //   stagger: -1,
+    })
+    .to(log1,{
+        delay:-.4,
+        x:0,
+        ease: Power3.easeInOut,
+    })
+    
+})
 order.addEventListener("click",function(elem){
 let tl = gsap.timeline()
     
