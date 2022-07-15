@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#main {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(213, 213, 213);
+    overflow: hidden;
+}
+
+nav {
+    position: absolute;
+    display: flex;
+    height: 8vh;
+    width: 100%;
+    background-color: whitesmoke;
+    z-index: 10;
+}
+
+#lef {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lef a span {
+    color: orange;
+}
+
+#lef a {
+
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: fredericka the great;
+    font-weight: 850;
+    font-size: 1.2vw;
+
+    margin-left: -40%;
+    text-decoration: none;
+}
+
+#rig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+
+}
+
+#rig a {
+    margin-left: 4%;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: fredericka the great;
+    font-family: 1000;
+    font-weight: 850;
+    font-size: 1vw;
+}
+
+#rig a:hover {
+    color: rgb(255, 175, 2);
+}
+
+#right {
+    position: absolute;
+    top: 4%;
+    left: 0%;
+    height: 100vh;
+    width: 60vw;
+    background-color: rgb(197, 195, 82);
+}
+
+#right img {
+    height: 100%;
+    width: 100%;
+}
+
+#left {
+    position: absolute;
+    top: 8%;
+    right: 0%;
+    z-index: 2;
+    height: 92%;
+    width: 50%;
+
+}
+
+#left input {
+    padding-left: 20px;
+    font-size: 1vw;
+    height: 6vh;
+    width: 30vw;
+    background-color: rgba(245, 245, 245, 0);
+    border: 1px solid burlywood;
+    border-radius: 0px;
+    margin-top: 2%;
+}
+
+#left input:focus {
+    outline: none;
+
+}
+
+#left input:hover {
+    border: 1px solid rgba(255, 166, 0, 0);
+
+}
+
+#left input:nth-child(5) {
+
+    padding-top: 1.5%;
+}
+
+#left input:nth-child(6) {
+    padding-left: 0%;
+    background-color: wheat;
+    color: black;
+    border: none;
+
+}
+
+#left h1 {
+    position: absolute;
+    top: 90%;
+    white-space: nowrap;
+    left: -47%;
+    font-size: 2vw;
+    color: rgb(67, 64, 64);
+    font-family: oswald;
+    font-weight: 100;
+    width: 100%;
+    height: 8vh;
+}
+
+#left form {
+    margin-top: 21.5%;
+    margin-left: 24%;
+}
+
+/* ---------------------------------- */
+
+nav {
+    position: fixed;
+    height: 8vh;
+    top: 0%;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+}
+
+#lef {
+    height: 100%;
+    width: 50%;
+}
+
+#lef h1 {
+    font-size: 1.6vw;
+    font-family: roboto black;
+    color: rgb(53, 0, 0);
+
+    margin-left: 21%;
+    margin-top: 2.3%;
+}
+
+#lef a {
+    text-decoration: none;
+    color: rgb(53, 0, 0);
+}
+
+#righ {
+    margin-left: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+
+#righ a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: okra light;
+    margin-left: 6%;
+    margin-top: -0%;
+    font-weight: 1000;
+}
+
+#righ svg {
+    margin-left: 4%;
+}
+
+#add {
+    position: absolute;
+    top: 10%;
+
+    height: 80%;
+    width: 20%;
+    background-color: red;
+    border-radius: 22px;
+    overflow: hidden;
+    margin-left: 9%;
+}
+
+#add img {
+    height: 100%;
+    width: 100%;
+}
+
+#add1 {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    height: 80%;
+    width: 20%;
+    background-color: red;
+    border-radius: 22px;
+    overflow: hidden;
+
+}
+
+#add1 img {
+    height: 100%;
+    width: 100%;
+}
+
+#add2 {
+    position: absolute;
+    top: 10%;
+    left: 51%;
+    height: 80%;
+    width: 20%;
+    background-color: red;
+    border-radius: 22px;
+    overflow: hidden;
+
+}
+
+#add2 img {
+    height: 100%;
+    width: 100%;
+}
+
+#add3 {
+    position: absolute;
+    top: 10%;
+    left: 72%;
+    height: 80%;
+    width: 20%;
+    background-color: red;
+    border-radius: 22px;
+    overflow: hidden;
+
+}
+
+#add3 img {
+    height: 100%;
+    width: 100%;
+}
+
+#lef input {
+    position: absolute;
+    top: 22%;
+    left: 15%;
+    height: 5vh;
+    width: 26vw;
+    padding: 0 15px;
+    border-radius: 22px;
+    border: 1px solid orange;
+}
+
+#box1 {
+    top: 0%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+#box1 img {
+    height: 100%;
+    width: 100%;
+}

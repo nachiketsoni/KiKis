@@ -115,11 +115,5 @@ cross2.addEventListener('click', function(){
 });
 })()
 
-var log = document.querySelector('#log');
-
-log.addEventListener("click",function(){
-    window.onclick == log
-        log.style.display = "none";
-    });
 
 
