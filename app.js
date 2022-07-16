@@ -23,8 +23,11 @@ app.use(expressSession({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
-passport.serializeUser(usersRouter.serializeUser());
-passport.deserializeUser(usersRouter.deserializeUser());
+passport.serializeUser(function(user, done) {done(null, user);});
+passport.deserializeUser(function(user, done) {done(null, user);});
+
+
+
 
 app.use(logger('dev'));
 app.use(express.json());
