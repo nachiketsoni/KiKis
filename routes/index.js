@@ -17,6 +17,7 @@ const storage = multer.diskStorage({
   }
 })
 
+
 const upload = multer({ storage: storage })
 
 const localStrategy = require('passport-local');
@@ -35,15 +36,14 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.get('/res', function (req, res) {
   res.render('res');
 });
-
 router.get('/order', isLoggedIn, function (req, res) {
-  userModel.findOne({ username: req.session.passport.user })
-    .then(function (founduser) {
-      orderModel.find()
-        .then(function (order) {
-          res.render('order', { order })
-        })
+  userModel.findOne({ username:req.session.passport.user})
+  .then(function (founduser) {
+    orderModel.find()
+    .then(function (order) {
+      res.render('order', { order});
     })
+  })
 });
 
 router.get('/checkout', function (req, res) {
@@ -90,12 +90,6 @@ router.get('/addToCart/:id', isLoggedIn, function (req, res) {
         })
     })
 });
-
-// router.get('/profile', function (req, res) {
-
-
-// });
-
 
 router.post('/addfood', isLoggedIn, upload.single('foodImage'), function (req, res) {
   userModel.findOne({ username: req.session.passport.user })
