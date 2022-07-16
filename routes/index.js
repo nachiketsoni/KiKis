@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var orderModel=require('./order');
+var orderModel = require('./order');
 const userModel = require('./users');
 const passport = require('passport');
 const razorpay = require('razorpay');
@@ -35,12 +35,17 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.get('/res', function (req, res) {
   res.render('res');
 });
-router.get('/order',isLoggedIn, function (req, res) {
-  res.render('order');
+
+router.get('/order', isLoggedIn, function (req, res) {
+  userModel.findOne({ username: req.session.passport.user })
+    .then(function (founduser) {
+      orderModel.find()
+        .then(function (order) {
+          res.render('order', { order })
+        })
+    })
 });
-router.get('/cart', function (req, res) {
-  res.render('cart');
-});
+
 router.get('/checkout', function (req, res) {
   res.render('checkout');
 });
@@ -54,9 +59,61 @@ router.get('/uploadfood', function (req, res) {
   res.render('uploadfood');
 });
 
-// router.get('/addfood', function (req, res) {
-//   userModel.findOne({ username: })
+router.get('/food/:name', function (req, res) {
+  orderModel.find()
+    .then(function (foundfood) {
+      const cpy = foundfood.filter(function (data) {
+        return data.foodName.toLowerCase().includes(req.params.name.toLowerCase())
+      })
+      res.json({foundfood: cpy});
+    })
+});
+
+router.get('/cart', isLoggedIn, function (req, res) {
+  userModel.findOne({ username: req.session.passport.user })
+    .populate('cart')
+    .then(function (founduser) {
+      console.log(founduser)
+      res.render('cart', { founduser })
+    })
+});
+
+
+router.get('/addToCart/:id', isLoggedIn, function (req, res) {
+  userModel.findOne({ username: req.session.passport.user })
+    .then(function (founduser) {
+      orderModel.findOne({ _id: req.params.id })
+        .then(function (foundpost) {
+          founduser.cart.push(foundpost._id)
+          founduser.save()
+          res.redirect('/order')
+        })
+    })
+});
+
+// router.get('/profile', function (req, res) {
+
+
 // });
+
+
+router.post('/addfood', isLoggedIn, upload.single('foodImage'), function (req, res) {
+  userModel.findOne({ username: req.session.passport.user })
+    .then(function (data) {
+      orderModel.create({
+        foodName: req.body.foodName,
+        foodPrice: req.body.foodPrice,
+        foodTime: req.body.foodTime,
+        foodRating: req.body.foodRating,
+        foodImage: req.file.filename,
+        foodOwner: data.username
+      })
+        .then(function (addfood) {
+          res.redirect('/order');
+        })
+    })
+
+});
 
 router.post('/register', function (req, res) {
   var newUser = new userModel({

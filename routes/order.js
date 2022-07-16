@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const plm = require('passport-local-mongoose');
  
 const orderSchema = new mongoose.Schema({
     foodName:String,
@@ -7,6 +6,10 @@ const orderSchema = new mongoose.Schema({
     foodTime:Number,
     foodRating:Number,
     foodImage:String,
+    user:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 })
 
 module.exports = mongoose.model('Order', orderSchema);
