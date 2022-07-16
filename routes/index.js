@@ -6,6 +6,23 @@ const passport = require('passport');
 const razorpay = require('razorpay');
 const multer = require('multer');
 
+const localStrategy = require('passport-local');
+passport.use(new localStrategy(userModel.authenticate()));
+
+
+const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+const GOOGLE_CLIENT_ID = '49142768196-nnflv13nom43sa6vkluoesl9olo2jlog.apps.googleusercontent.com';
+const GOOGLE_CLIENT_SECRET = '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'
+passport.use(new GoogleStrategy({
+    clientID:     GOOGLE_CLIENT_ID,
+    clientSecret: GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/google/authenticated",
+    passReqToCallback   : true
+  },
+  function(request, accessToken, refreshToken, profile, done) {
+      return done(null, profile);
+  }
+));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -18,9 +35,6 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage })
-
-const localStrategy = require('passport-local');
-passport.use(new localStrategy(userModel.authenticate()));
 
 const instance = new razorpay({
   key_id: 'rzp_test_hZUEKNvCfMICwO',
@@ -35,7 +49,8 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.get('/res', function (req, res) {
   res.render('res');
 });
-router.get('/order', isLoggedIn, function (req, res) {
+router.get('/order',isLoggedIn, function (req, res) {
+  console.log(req.session.passport.user);
   res.render('order');
 });
 router.get('/cart', function (req, res) {
@@ -55,7 +70,7 @@ router.get('/uploadfood', function (req, res) {
 });
 
 // router.get('/addfood', function (req, res) {
-//   userModel.findOne({ username: })
+//   userModel.findOne({ username: req.session.passport.user})
 // });
 
 router.post('/register', function (req, res) {
@@ -71,6 +86,13 @@ router.post('/register', function (req, res) {
       })
     })
 });
+router.get('/google/auth', passport.authenticate('google',{scope: ['profile', 'email']})
+);
+
+router.get('/google/authenticated', passport.authenticate('google', { 
+  successRedirect: '/order',
+  failureRedirect: '/' 
+}), function (req, res) {console.log('hhelo');})
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/order',
