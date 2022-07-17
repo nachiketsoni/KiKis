@@ -6,6 +6,10 @@ const orderSchema = new mongoose.Schema({
     foodTime:Number,
     foodRating:Number,
     foodImage:String,
+    foodOwner:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 })
 
 module.exports = mongoose.model('Order', orderSchema);

@@ -7,6 +7,14 @@ const userSchema = new mongoose.Schema({
   name: String,
   username: String,
   password: String,
+  order: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Order'
+  }],
+  cart:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Order'
+  }],
 });
 
 userSchema.plugin(plm);
