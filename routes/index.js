@@ -75,6 +75,58 @@ router.get('/uploadfood', function (req, res) {
 //   userModel.findOne({ username: req.session.passport.user})
 // });
 
+
+router.get('/food/:name', function (req, res) {
+  orderModel.find()
+    .then(function (foundfood) {
+      const cpy = foundfood.filter(function (data) {
+        return data.foodName.toLowerCase().includes(req.params.name.toLowerCase())
+      })
+      res.json({foundfood: cpy});
+    })
+});
+
+router.get('/cart', isLoggedIn, function (req, res) {
+  userModel.findOne({ username: req.session.passport.user })
+    .populate('cart')
+    .then(function (founduser) {
+      console.log(founduser)
+      res.render('cart', { founduser })
+    })
+});
+
+
+router.get('/addToCart/:id', isLoggedIn, function (req, res) {
+  userModel.findOne({ username: req.session.passport.user })
+    .then(function (founduser) {
+      orderModel.findOne({ _id: req.params.id })
+        .then(function (foundpost) {
+          founduser.cart.push(foundpost._id)
+          founduser.save()
+          res.redirect('/order')
+        })
+    })
+});
+
+router.post('/addfood', isLoggedIn, upload.single('foodImage'), function (req, res) {
+  userModel.findOne({ username: req.session.passport.user })
+    .then(function (data) {
+      orderModel.create({
+        foodName: req.body.foodName,
+        foodPrice: req.body.foodPrice,
+        foodTime: req.body.foodTime,
+        foodRating: req.body.foodRating,
+        foodImage: req.file.filename,
+        foodOwner: data.username
+      })
+        .then(function (addfood) {
+          res.redirect('/order');
+        })
+    })
+
+});
+
+
 router.post('/register', function (req, res) {
   var newUser = new userModel({
     username: req.body.username,
