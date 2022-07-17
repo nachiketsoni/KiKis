@@ -332,9 +332,6 @@
         padding: 0 15px;
         border-radius: 22px;
         border: 1px solid orange;
-<<<<<<< HEAD
-        outline: none;
-=======
         z-index: 2;
     }
 
@@ -364,7 +361,6 @@
     .singlefood:hover {
         cursor: pointer;
         background-color: #dadada;
->>>>>>> cbd315e0221f4e45803fce1d4127a0d6c343ecf2
     }
 </style>
 
@@ -373,10 +369,6 @@
         <nav>
             <div id="lef">
                 <a href="/">
-<<<<<<< HEAD
-=======
-
->>>>>>> cbd315e0221f4e45803fce1d4127a0d6c343ecf2
                     <h1 style="color:orange ;">KiKi</h1>
                 </a>
                 <input class="foodname" type="search" placeholder="Search for foods">
@@ -484,9 +476,9 @@
                         response.data.foundfood.forEach((elem) => {
                             if (response.data.foundfood.indexOf(elem) != -1) {
                                 searchbox.innerHTML += `
-                                <a class="singlefood" href="/searchfood/${elem.foodName}">
+                                <a class="singlefood" href="/searchfood/${elem}">
                                     <span>
-                                        ${elem.foodName}
+                                        ${elem}
                                     </span>
                                 </a>
                                 ` ;
