@@ -34,7 +34,7 @@
 
     #adds {
         display: flex;
-      
+
         height: 40%;
         width: 100%;
         position: relative;
@@ -83,8 +83,8 @@
         height: 60%;
         padding: 20px 20px;
         overflow: hidden;
-       
-        
+
+
     }
 
     .card .card_image img {
@@ -92,7 +92,7 @@
         width: 100%;
         overflow: hidden;
         border-radius: 22px;
-        
+
     }
 
     .card .card_title {
@@ -223,7 +223,7 @@
         font-size: 1.6vw;
         font-family: roboto black;
         color: rgb(53, 0, 0);
-       
+
         margin-left: 21%;
         margin-top: 2.3%;
     }
@@ -254,10 +254,11 @@
     #righ svg {
         margin-left: 4%;
     }
-    #add{
+
+    #add {
         position: absolute;
         top: 10%;
-      
+
         height: 80%;
         width: 20%;
         background-color: red;
@@ -265,11 +266,13 @@
         overflow: hidden;
         margin-left: 9%;
     }
-    #add img{
+
+    #add img {
         height: 100%;
         width: 100%;
     }
-    #add1{
+
+    #add1 {
         position: absolute;
         top: 10%;
         left: 30%;
@@ -278,13 +281,15 @@
         background-color: red;
         border-radius: 22px;
         overflow: hidden;
-        
+
     }
-    #add1 img{
+
+    #add1 img {
         height: 100%;
         width: 100%;
     }
-    #add2{
+
+    #add2 {
         position: absolute;
         top: 10%;
         left: 51%;
@@ -293,13 +298,15 @@
         background-color: red;
         border-radius: 22px;
         overflow: hidden;
-        
+
     }
-    #add2 img{
+
+    #add2 img {
         height: 100%;
         width: 100%;
     }
-    #add3{
+
+    #add3 {
         position: absolute;
         top: 10%;
         left: 72%;
@@ -308,13 +315,15 @@
         background-color: red;
         border-radius: 22px;
         overflow: hidden;
-        
+
     }
-    #add3 img{
+
+    #add3 img {
         height: 100%;
         width: 100%;
     }
-    #lef input{
+
+    #lef input {
         position: absolute;
         top: 22%;
         left: 15%;
@@ -323,9 +332,36 @@
         padding: 0 15px;
         border-radius: 22px;
         border: 1px solid orange;
+        z-index: 2;
     }
-   
-   
+
+    .searchbox {
+        position: absolute;
+        top: 52%;
+        left: 15%;
+        min-height: 0vh;
+        width: 26vw;
+        border: 1px solid grey;
+        border-top: none;
+        background-color: white;
+        z-index: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .singlefood {
+        padding: 0 15px;
+        border-bottom: 1px solid #dadada;
+    }
+
+    .singlefood:nth-child(1) {
+        margin-top: 22px;
+    }
+
+    .singlefood:hover {
+        cursor: pointer;
+        background-color: #dadada;
+    }
 </style>
 
 <body>
@@ -333,12 +369,12 @@
         <nav>
             <div id="lef">
                 <a href="/">
-                  
+
                     <h1 style="color:orange ;">KiKi</h1>
                 </a>
-                <form action="">
-                    <input type="search" placeholder="Search for foods">
-                </form>
+                <input class="foodname" type="search" placeholder="Search for foods">
+                <div class="searchbox">
+                </div>
             </div>
             <div id="righ">
                 <a href="/res">ADD RESTURANT</a>
@@ -357,260 +393,62 @@
         <div id="box1">
             <div id="left">
                 <div id="adds">
-                <div id="add">
-                    <img src="https://i.pinimg.com/originals/fb/ff/3c/fbff3c813382a2c474538578ed7e502b.jpg" alt="">
-                </div>
-                <div id="add1">
-                    <img src="https://i.pinimg.com/564x/d3/2f/b1/d32fb13fa0784e1d44d51fc8ea1e4013.jpg" alt="">
-                </div>
-                <div id="add2">
-                    <img src="https://i.pinimg.com/564x/b0/be/47/b0be470b38b8b710f223aff3cfec4833.jpg" alt="">
-                </div>
-                <div id="add3">
-                    <img src="https://i.pinimg.com/564x/ec/52/76/ec5276f89dba2df160576200f7408436.jpg" alt="">
-                </div>
+                    <div id="add">
+                        <img src="https://i.pinimg.com/originals/fb/ff/3c/fbff3c813382a2c474538578ed7e502b.jpg" alt="">
+                    </div>
+                    <div id="add1">
+                        <img src="https://i.pinimg.com/564x/d3/2f/b1/d32fb13fa0784e1d44d51fc8ea1e4013.jpg" alt="">
+                    </div>
+                    <div id="add2">
+                        <img src="https://i.pinimg.com/564x/b0/be/47/b0be470b38b8b710f223aff3cfec4833.jpg" alt="">
+                    </div>
+                    <div id="add3">
+                        <img src="https://i.pinimg.com/564x/ec/52/76/ec5276f89dba2df160576200f7408436.jpg" alt="">
+                    </div>
                 </div>
                 <div id="foodlist">
-                    <div class="food">
-                        <div class="cards-list">
-                            <div class="card 1">
-                                <div class="card_image"> <img
-                                        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80" />
-                                </div>
-                                <div class="card_title title-white">
-                                    <p>Chikken tikka</p>
-                                    <h6>hameeks</h6>
-                                    <div id="rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            width="24" height="24">
-                                            <path fill="none" d="M0 0h24v24H0z" />
-                                            <path
-                                                d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
-                                                fill="rgba(255,255,255,1)" />
-                                        </svg>
-                                        <h5>3.5</h5>
+                    <% order.forEach(function(elem){ %>
+                        <div class="food">
+                            <div class="cards-list">
+                                <div class="card 1">
+                                    <div class="card_image"> <img src="../images/<%= elem.foodImage %>" />
                                     </div>
-                                    <div id="time">
-                                        <h6>30 min</h6>
+                                    <div class="card_title title-white">
+                                        <p>
+                                            <%= elem.foodName %>
+                                        </p>
+                                        <h6>
+                                            <%= elem.founduser %>
+                                        </h6>
+                                        <div id="rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                width="24" height="24">
+                                                <path fill="none" d="M0 0h24v24H0z" />
+                                                <path
+                                                    d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
+                                                    fill="rgba(255,255,255,1)" />
+                                            </svg>
+                                            <h5>
+                                                <%= elem.foodRating %>
+                                            </h5>
+                                        </div>
+                                        <div id="time">
+                                            <h6>
+                                                <%= elem.foodTime %>
+                                            </h6>
+                                        </div>
+                                        <div id="paisa">
+                                            <h6>₹<%= elem.foodPrice %>
+                                            </h6>
+                                        </div>
+                                        <div id="line"></div>
+                                        <h5 id="welcome"><a href="/addToCart/<%= elem._id %>">ADD TO CART </a></h5>
                                     </div>
-                                    <div id="paisa">
-                                        <h6>₹200</h6>
-                                    </div>
-                                    <div id="line"></div>
-                                    <h5 id="welcome"><a href="/checkout">QUICK VIEW </a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="food">
-                        <div class="cards-list">
-                            <div class="card 1">
-                                <div class="card_image"> <img
-                                        src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
-                                </div>
-                                <div class="card_title title-white">
-                                    <p>Mix veG</p>
-                                    <h6>hameeks</h6>
-                                    <div id="rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            width="24" height="24">
-                                            <path fill="none" d="M0 0h24v24H0z" />
-                                            <path
-                                                d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
-                                                fill="rgba(255,255,255,1)" />
-                                        </svg>
-                                        <h5>2.5</h5>
-                                    </div>
-                                    <div id="time">
-                                        <h6>30 min</h6>
-                                    </div>
-                                    <div id="paisa">
-                                        <h6>₹500</h6>
-                                    </div>
-                                    <div id="line"></div>
-                                    <h5 id="welcome"><a href="">QUICK VIEW </a></h5>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="food">
-                        <div class="cards-list">
-                            <div class="card 1">
-                                <div class="card_image"> <img
-                                        src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
-                                </div>
-                                <div class="card_title title-white">
-                                    <p>Hara Bhara khana</p>
-                                    <h6>Bekaner</h6>
-                                    <div id="rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            width="24" height="24">
-                                            <path fill="none" d="M0 0h24v24H0z" />
-                                            <path
-                                                d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
-                                                fill="rgba(255,255,255,1)" />
-                                        </svg>
-                                        <h5>4.5</h5>
-                                    </div>
-                                    <div id="time">
-                                        <h6>10 min</h6>
-                                    </div>
-                                    <div id="paisa">
-                                        <h6>₹225</h6>
-                                    </div>
-                                    <div id="line"></div>
-                                    <h5 id="welcome"><a href="">QUICK VIEW </a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="food">
-                        <div class="cards-list">
-                            <div class="card 1">
-                                <div class="card_image"> <img
-                                        src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
-                                </div>
-                                <div class="card_title title-white">
-                                    <p>Apna Burger</p>
-                                    <h6>Kuldeeps</h6>
-                                    <div id="rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            width="24" height="24">
-                                            <path fill="none" d="M0 0h24v24H0z" />
-                                            <path
-                                                d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
-                                                fill="rgba(255,255,255,1)" />
-                                        </svg>
-                                        <h5>5</h5>
-                                    </div>
-                                    <div id="time">
-                                        <h6>20.5 min</h6>
-                                    </div>
-                                    <div id="paisa">
-                                        <h6>₹270</h6>
-                                    </div>
-                                    <div id="line"></div>
-                                    <h5 id="welcome"><a href="">QUICK VIEW </a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="food">
-                        <div class="cards-list">
-                            <div class="card 1">
-                                <div class="card_image"> <img
-                                        src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80" />
-                                </div>
-                                <div class="card_title title-white">
-                                    <p>Chikken tikka</p>
-                                    <h6>hameeks</h6>
-                                    <div id="rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            width="24" height="24">
-                                            <path fill="none" d="M0 0h24v24H0z" />
-                                            <path
-                                                d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
-                                                fill="rgba(255,255,255,1)" />
-                                        </svg>
-                                        <h5>3.5</h5>
-                                    </div>
-                                    <div id="time">
-                                        <h6>30 min</h6>
-                                    </div>
-                                    <div id="paisa">
-                                        <h6>₹200</h6>
-                                    </div>
-                                    <div id="line"></div>
-                                    <h5 id="welcome"><a href="">QUICK VIEW </a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="food">
-                        <div class="cards-list">
-                            <div class="card 1">
-                                <div class="card_image"> <img
-                                        src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=80" />
-                                </div>
-                                <div class="card_title title-white">
-                                    <p>Anti jalota</p>
-                                    <h6>hameeks</h6>
-                                    <div id="rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            width="24" height="24">
-                                            <path fill="none" d="M0 0h24v24H0z" />
-                                            <path
-                                                d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
-                                                fill="rgba(255,255,255,1)" />
-                                        </svg>
-                                        <h5>3.5</h5>
-                                    </div>
-                                    <div id="time">
-                                        <h6>30 min</h6>
-                                    </div>
-                                    <div id="paisa">
-                                        <h6>₹200</h6>
-                                    </div>
-                                    <div id="line"></div>
-                                    <h5 id="welcome"><a href="">QUICK VIEW </a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="food">
-                        <div class="cards-list">
-                            <div class="card 1">
-                                <div class="card_image"> <img
-                                        src="https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
-                                </div>
-                                <div class="card_title title-white">
-                                    <p>Burger</p>
-                                    <h6>hameeks</h6>
-                                    <div id="rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            width="24" height="24">
-                                            <path fill="none" d="M0 0h24v24H0z" />
-                                            <path
-                                                d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
-                                                fill="rgba(255,255,255,1)" />
-                                        </svg>
-                                        <h5>3.5</h5>
-                                    </div>
-                                    <div id="time">
-                                        <h6>30 min</h6>
-                                    </div>
-                                    <div id="paisa">
-                                        <h6>₹200</h6>
-                                    </div>
-                                    <div id="line"></div>
-                                    <h5 id="welcome"><a href="">QUICK VIEW </a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="food">
-                        <div class="cards-list">
-                            <div class="card 1">
-                                <div class="card_image"> <img
-                                        src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=80" />
-                                </div>
-                                <div class="card_title title-white">
-                                    <p>Anti jalota</p>
-                                    <h6>hameeks</h6>
-                                    <div id="rating"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                            width="24" height="24">
-                                            <path fill="none" d="M0 0h24v24H0z" />
-                                            <path
-                                                d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
-                                                fill="rgba(255,255,255,1)" />
-                                        </svg>
-                                        <h5>3.5</h5>
-                                    </div>
-                                    <div id="time">
-                                        <h6>30 min</h6>
-                                    </div>
-                                    <div id="paisa">
-                                        <h6>₹200</h6>
-                                    </div>
-                                    <div id="line"></div>
-                                    <h5 id="welcome"><a href="">QUICK VIEW </a></h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <% }) %>
+
+
 
 
 
@@ -624,7 +462,28 @@
         </div>
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
+        integrity="sha512-xIPqqrfvUAc/Cspuj7Bq0UtHNo/5qkdyngx6Vwt+tmbvTLDszzXM0G6c91LXmGrRx8KEPulT+AfOOez+TeVylg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var foodname = document.querySelector('.foodname');
+        var searchbox = document.querySelector('.searchbox');
+        foodname.addEventListener('keyup', function (e) {
+            var foodname = document.querySelector('.foodname').value;
+            if (foodname.length > 0) {
+                axios.get('/food/' + foodname)
+                    .then(function (response) {
+                        response.data.foundfood.forEach((elem) => {
+                            var foods = elem;
+                        })
 
+                    })
+            }
+            else {
+                searchbox.innerHTML = '';
+            }
+        });
+    </script>
 </body>
 
 </html>

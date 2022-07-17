@@ -34,12 +34,12 @@
     </nav>
    
       <div id="left">
-           <form action="/addfood">
-            <input type="text" placeholder="Food Name">
-            <input type="text" placeholder="Food Price">
-            <input type="text" placeholder="Food Time">
-            <input type="text" placeholder="VeG / Non-VeG">
-            <!-- <input type="file" name="file" placeholder="image"> -->
+           <form action="/addfood" enctype="multipart/form-data" method="post">
+            <input type="text" placeholder="Food Name" name="foodName">
+            <input type="text" placeholder="Food Price" name="foodPrice">
+            <input type="text" placeholder="Food Time" name="foodTime">
+            <input type="text" placeholder="VeG / Non-VeG" name="foodType">
+            <input type="file" placeholder="image" name="foodImage">
             <input type="submit">
            </form>
       </div>
