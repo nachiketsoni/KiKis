@@ -10,17 +10,17 @@ const localStrategy = require('passport-local');
 passport.use(new localStrategy(userModel.authenticate()));
 
 
-const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const GOOGLE_CLIENT_ID = '49142768196-nnflv13nom43sa6vkluoesl9olo2jlog.apps.googleusercontent.com';
 const GOOGLE_CLIENT_SECRET = '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'
 passport.use(new GoogleStrategy({
-    clientID:     GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/google/authenticated",
-    passReqToCallback   : true
-  },
-  function(request, accessToken, refreshToken, profile, done) {
-      return done(null, profile);
+  clientID: GOOGLE_CLIENT_ID,
+  clientSecret: GOOGLE_CLIENT_SECRET,
+  callbackURL: "http://localhost:3000/google/authenticated",
+  passReqToCallback: true
+},
+  function (request, accessToken, refreshToken, profile, done) {
+    return done(null, profile);
   }
 ));
 
@@ -50,7 +50,7 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.get('/res', function (req, res) {
   res.render('res');
 });
-router.get('/order',isLoggedIn, function (req, res) {
+router.get('/order', isLoggedIn, function (req, res) {
   orderModel.find({}, function (err, order) {
     if (err) {
       console.log(err);
@@ -69,7 +69,7 @@ router.get('/thankyou', function (req, res) {
 router.get('/back', function (req, res) {
   res.redirect('back');
 });
-router.get('/uploadfood', function (req, res) {
+router.get('/uploadfood', isLoggedIn, function (req, res) {
   res.render('uploadfood');
 });
 
@@ -79,17 +79,24 @@ router.get('/uploadfood', function (req, res) {
 
 
 router.get('/food/:name', function (req, res) {
-  orderModel.find()
+  orderModel.distinct('foodName', function (err, foundfood) {
+    const cpy = foundfood.filter(function (data) {
+      if (data.toLowerCase().includes(req.params.name.toLowerCase())) {
+        return data;
+      }
+    })
+    res.json({ foundfood: cpy });
+  })
+});
+router.get('/searchfood/:name', function (req, res) {
+  orderModel.find({ foodName: req.params.name })
     .then(function (foundfood) {
-      const cpy = foundfood.filter(function (data) {
-        return data.foodName.toLowerCase().includes(req.params.name.toLowerCase())
-      })
-      res.json({foundfood: cpy});
+      res.json({ foundfood: foundfood });
     })
 });
 
 router.get('/cart', isLoggedIn, function (req, res) {
-  userModel.findOne({ username: req.session.passport.user })
+  userModel.findOne({ username: req.session.passport.user.username })
     .populate('cart')
     .then(function (founduser) {
       console.log(founduser)
@@ -97,9 +104,8 @@ router.get('/cart', isLoggedIn, function (req, res) {
     })
 });
 
-
 router.get('/addToCart/:id', isLoggedIn, function (req, res) {
-  userModel.findOne({ username: req.session.passport.user })
+  userModel.findOne({ username: req.session.passport.user.username })
     .then(function (founduser) {
       orderModel.findOne({ _id: req.params.id })
         .then(function (foundpost) {
@@ -111,7 +117,7 @@ router.get('/addToCart/:id', isLoggedIn, function (req, res) {
 });
 
 router.post('/addfood', isLoggedIn, upload.single('foodImage'), function (req, res) {
-  userModel.findOne({ username: req.session.passport.user })
+  userModel.findOne({ username: req.session.passport.user.username })
     .then(function (data) {
       orderModel.create({
         foodName: req.body.foodName,
@@ -119,7 +125,7 @@ router.post('/addfood', isLoggedIn, upload.single('foodImage'), function (req, r
         foodTime: req.body.foodTime,
         foodRating: req.body.foodRating,
         foodImage: req.file.filename,
-        foodOwner: data.username
+        foodOwner: data._id
       })
         .then(function (addfood) {
           res.redirect('/order');
@@ -142,13 +148,13 @@ router.post('/register', function (req, res) {
       })
     })
 });
-router.get('/google/auth', passport.authenticate('google',{scope: ['profile', 'email']})
+router.get('/google/auth', passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-router.get('/google/authenticated', passport.authenticate('google', { 
+router.get('/google/authenticated', passport.authenticate('google', {
   successRedirect: '/order',
-  failureRedirect: '/' 
-}), function (req, res) {console.log('hhelo');})
+  failureRedirect: '/'
+}), function (req, res) { })
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/order',
