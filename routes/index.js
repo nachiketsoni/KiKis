@@ -51,11 +51,13 @@ router.get('/res', function (req, res) {
   res.render('res');
 });
 router.get('/order',isLoggedIn, function (req, res) {
-  console.log(req.session.passport.user);
-  res.render('order');
-});
-router.get('/cart', function (req, res) {
-  res.render('cart');
+  orderModel.find({}, function (err, order) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render('order', { order: order });
+    }
+  });
 });
 
 router.get('/checkout', function (req, res) {
