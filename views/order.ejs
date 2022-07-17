@@ -473,10 +473,18 @@
             if (foodname.length > 0) {
                 axios.get('/food/' + foodname)
                     .then(function (response) {
+                        searchbox.innerHTML = ``;
                         response.data.foundfood.forEach((elem) => {
-                            var foods = elem;
+                            if (response.data.foundfood.indexOf(elem) != -1) {
+                                searchbox.innerHTML += `
+                                <a class="singlefood" href="/searchfood/${elem.foodName}">
+                                    <span>
+                                        ${elem.foodName}
+                                    </span>
+                                </a>
+                                ` ;
+                            }
                         })
-
                     })
             }
             else {
