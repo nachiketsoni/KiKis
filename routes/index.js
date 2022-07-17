@@ -50,7 +50,8 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.get('/res', function (req, res) {
   res.render('res');
 });
-router.get('/order', isLoggedIn,async function (req, res) {
+router.get('/order', isLoggedIn, async function (req, res) {
+
   const order = await orderModel.find()
   res.render('order', { order });
 });
@@ -83,6 +84,7 @@ router.get('/food/:name', function (req, res) {
     res.json({ foundfood: cpy });
   })
 });
+
 router.get('/searchfood/:name', function (req, res) {
   orderModel.find({ foodName: req.params.name })
     .then(function (foundfood) {
@@ -94,7 +96,6 @@ router.get('/cart', isLoggedIn, function (req, res) {
   userModel.findOne({ username: req.session.passport.user.username })
     .populate('cart')
     .then(function (founduser) {
-      console.log(founduser)
       res.render('cart', { founduser })
     })
 });
@@ -126,9 +127,7 @@ router.post('/addfood', isLoggedIn, upload.single('foodImage'), function (req, r
           res.redirect('/order');
         })
     })
-
 });
-
 
 router.post('/register', function (req, res) {
   var newUser = new userModel({
@@ -143,11 +142,36 @@ router.post('/register', function (req, res) {
       })
     })
 });
-router.get('/google/auth', passport.authenticate('google', { scope: ['profile', 'email'] })
-);
+router.get('/googleregister', isLoggedIn, async function (req, res) {
+  var User = await userModel.findOne({ username: req.session.passport.user._json.email })
+  if (User) {
+    req.logout(function (err) {
+      if (err) { return next(err) }
+      res.send(`<script>alert("You are already registered with this email. Please login with your email and password.");window.location.href="/";</script>`);
+    });
+  }
+  else {
+    res.render('googleregister', { user: req.session.passport.user._json });
+  }
+});
+router.post('/googleregister', isLoggedIn, function (req, res) {
+  var newUser = new userModel({
+    username: req.body.username,
+    name: req.body.name,
+    mobilenumber: req.body.number
+  })
+  userModel.register(newUser, req.body.password)
+    .then(function (u) {
+      passport.authenticate('local')(req, res, function () {
+        res.redirect('/order');
+      })
+    })
+});
+
+router.get('/google/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/google/authenticated', passport.authenticate('google', {
-  successRedirect: '/order',
+  successRedirect: '/googleregister',
   failureRedirect: '/'
 }), function (req, res) { })
 
