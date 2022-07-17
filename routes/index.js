@@ -79,13 +79,16 @@ router.get('/uploadfood', isLoggedIn, function (req, res) {
 
 
 router.get('/food/:name', function (req, res) {
-  orderModel.find()
-    .then(function (foundfood) {
-      const cpy = foundfood.filter(function (data) {
-        return data.foodName.toLowerCase().includes(req.params.name.toLowerCase())
-      })
-      res.json({ foundfood: cpy });
+  orderModel.distinct('foodName', function (err, foundfood) {
+    const cpy = foundfood.filter(function (data) {
+      console.log(data);
+      if (data.toLowerCase().includes(req.params.name.toLowerCase())) {
+        console.log(data);
+        return data;
+      }
     })
+    res.json({ foundfood: cpy });
+  })
 });
 router.get('/searchfood/:name', function (req, res) {
   orderModel.find({ foodName: req.params.name })
@@ -102,7 +105,6 @@ router.get('/cart', isLoggedIn, function (req, res) {
       res.render('cart', { founduser })
     })
 });
-
 
 router.get('/addToCart/:id', isLoggedIn, function (req, res) {
   userModel.findOne({ username: req.session.passport.user.username })
@@ -154,7 +156,7 @@ router.get('/google/auth', passport.authenticate('google', { scope: ['profile', 
 router.get('/google/authenticated', passport.authenticate('google', {
   successRedirect: '/order',
   failureRedirect: '/'
-}), function (req, res) { console.log('hhelo'); })
+}), function (req, res) { })
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/order',
