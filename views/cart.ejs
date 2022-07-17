@@ -2,93 +2,112 @@
 <html lang="en">
 
 <head>
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-          <link rel="stylesheet" href="../stylesheets/cart.css">
-          <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/cart.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
-          <div id="main">
-                    <div class="left">
-                              <a href="/order"><i class="ri-arrow-left-s-line"></i> Back to Store</a>
-                              <h1 class="txtanim" >Food Cart</h1>
+    <div id="main">
+        <div class="left">
+            <a href="/order"><i class="ri-arrow-left-s-line"></i> Back to Store</a>
+            <h1 class="txtanim">Food Cart</h1>
 
-                              <div class="box">
-                                        <div class="ctrg txtanim">
-                                                  <h4>Item</h4>
-                                                  <div class="side">
-                                                           <div class="sec">
-                                                            <h4>Size</h4>
-                                                           </div> 
-                                                           <div class="sec">
-                                                            <h4>Quantity</h4>
-                                                           </div> 
-                                                           <div class="sec">
-                                                            <h4>Price</h4>
-                                                           </div> 
-                                                           
-                                                  </div>
-                                        </div>
-                                        <div class="item">
-                                            <% founduser.cart.forEach(function(elem) { %>
-                                                  <div class="itm txtanim">
+            <div class="box">
+                <div class="ctrg txtanim">
+                    <h4>Item</h4>
+                    <div class="side">
+                        <div class="sec">
+                            <h4>Size</h4>
+                        </div>
+                        <div class="sec">
+                            <h4>Quantity</h4>
+                        </div>
+                        <div class="sec">
+                            <h4>Price</h4>
+                        </div>
 
-                                                            <div class="lside">
-                                                                      <img src="https://d1ralsognjng37.cloudfront.net/dabce491-3bfd-4e0f-9c00-dafca1a6d2fc.jpeg" alt="">
-                                                                      <h2><%= elem.foodName %></h2>
-          
-                                                            </div>
-                                                            <div class="side">
-                                                                      <div class="sec"><%= elem.foodTime %></div>
-                                                                      <div class="sec"><i class="ri-indeterminate-circle-line"></i> <h3>1</h3> <i class="ri-add-circle-line"></i></div>
-                                                                      <div class="sec">$<%= elem.foodPrice %></div>
-                                                            </div>
-                                                  </div>
-                                            <% }) %>
-                                                  
-                                        </div>
-                                        
-                              </div>
                     </div>
-                    <div class="right">
-                              <h1 class="txtanim2" >Summary</h1>
-                              <div class="calc">
-                                        <div class="cats txtanim2"><h2>Subtotal</h2> <h2>$252.00</h2></div>
-                                        <div class="cats txtanim2"><h2>Shiping</h2> <h2>$00.00</h2></div>
-                                        <div class="cats txtanim2"><h2>Tax</h2> <h2>$252.00</h2></div>
-                              </div>
-                              <div class="total">
-                                        <div class="cats txtanim2"><h2>Total</h2> <h2>$252.00</h2></div>
-                                        <form action="/checkout" method="GEt">
+                </div>
+                <div class="item">
+                    <% founduser.cart.forEach(function(elem) { %>
+                        <div class="itm txtanim">
 
-                                                  <button class="txtanim2" >Checkout</button>
-                                        </form>
-                              </div>
-                    </div>
-          </div>
+                            <div class="lside">
+                                <img src="../images/<%= elem.foodImage %>" alt="">
+                                <h2>
+                                    <%= elem.foodName %>
+                                </h2>
 
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+                            </div>
+                            <div class="side">
+                                <div class="sec">
+                                    <%= elem.foodTime %>
+                                </div>
+                                <div class="sec"><i class="ri-indeterminate-circle-line"></i>
+                                    <h3>1</h3> <i class="ri-add-circle-line"></i>
+                                </div>
+                                <div class="sec">$<%= elem.foodPrice %>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
 
-          <script>
-                    gsap.from('.txtanim',{
-                              stagger:.2,
-                              duration: .4,
-                              y: 100,
-                              opacity: 0,
-                    
-                    })
-                    gsap.from('.txtanim2',{
-                              stagger:.2,
-                              duration: .4,
-                              x: 100,
-                              opacity: 0,
-                    
-                    })
-                    
-          </script>
+                </div>
+
+            </div>
+        </div>
+        <div class="right">
+            <h1 class="txtanim2">Summary</h1>
+            <div class="calc">
+                <div class="cats txtanim2">
+                    <h2>Subtotal</h2>
+                    <h2>$252.00</h2>
+                </div>
+                <div class="cats txtanim2">
+                    <h2>Shiping</h2>
+                    <h2>$00.00</h2>
+                </div>
+                <div class="cats txtanim2">
+                    <h2>Tax</h2>
+                    <h2>$252.00</h2>
+                </div>
+            </div>
+            <div class="total">
+                <div class="cats txtanim2">
+                    <h2>Total</h2>
+                    <h2>$252.00</h2>
+                </div>
+                <form action="/checkout" method="GEt">
+
+                    <button class="txtanim2">Checkout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+
+    <script>
+        gsap.from('.txtanim', {
+            stagger: .2,
+            duration: .4,
+            y: 100,
+            opacity: 0,
+
+        })
+        gsap.from('.txtanim2', {
+            stagger: .2,
+            duration: .4,
+            x: 100,
+            opacity: 0,
+
+        })
+
+    </script>
 </body>
 
 </html>

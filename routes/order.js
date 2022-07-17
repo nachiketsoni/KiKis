@@ -6,7 +6,7 @@ const orderSchema = new mongoose.Schema({
     foodTime:Number,
     foodRating:Number,
     foodImage:String,
-    user:[{
+    foodOwner:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }]
