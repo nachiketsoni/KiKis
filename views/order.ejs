@@ -369,7 +369,6 @@
         <nav>
             <div id="lef">
                 <a href="/">
-
                     <h1 style="color:orange ;">KiKi</h1>
                 </a>
                 <input class="foodname" type="search" placeholder="Search for foods">
@@ -477,9 +476,9 @@
                         response.data.foundfood.forEach((elem) => {
                             if (response.data.foundfood.indexOf(elem) != -1) {
                                 searchbox.innerHTML += `
-                                <a class="singlefood" href="/searchfood/${elem.foodName}">
+                                <a class="singlefood" href="/searchfood/${elem}">
                                     <span>
-                                        ${elem.foodName}
+                                        ${elem}
                                     </span>
                                 </a>
                                 ` ;
