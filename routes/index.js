@@ -50,14 +50,9 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.get('/res', function (req, res) {
   res.render('res');
 });
-router.get('/order', isLoggedIn, function (req, res) {
-  orderModel.find({}, function (err, order) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render('order', { order: order });
-    }
-  });
+router.get('/order', isLoggedIn,async function (req, res) {
+  const order = await orderModel.find()
+  res.render('order', { order });
 });
 
 router.get('/checkout', function (req, res) {
