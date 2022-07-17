@@ -81,9 +81,7 @@ router.get('/uploadfood', isLoggedIn, function (req, res) {
 router.get('/food/:name', function (req, res) {
   orderModel.distinct('foodName', function (err, foundfood) {
     const cpy = foundfood.filter(function (data) {
-      console.log(data);
       if (data.toLowerCase().includes(req.params.name.toLowerCase())) {
-        console.log(data);
         return data;
       }
     })
