@@ -89,7 +89,12 @@ router.get('/cart', isLoggedIn, function (req, res) {
   userModel.findOne({ username: req.session.passport.user.username })
     .populate('cart')
     .then(function (founduser) {
-      res.render('cart', { founduser })
+      var subtotal = 0;
+      founduser.cart.forEach(function (data) {
+        data.foodPrice = parseInt(data.foodPrice);
+        subtotal += data.foodPrice;
+      })
+      res.render('cart', { founduser , subtotal })
     })
 });
 
