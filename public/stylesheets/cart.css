@@ -282,3 +282,11 @@ a{
           margin-bottom: 2vw;
           cursor: pointer;
 }
+.mtcart{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    font-weight: 100;
+    font-size: 5.5vw;
+    color: #dadada;
+}

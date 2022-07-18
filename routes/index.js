@@ -34,7 +34,6 @@ const storage = multer.diskStorage({
   }
 })
 
-
 const upload = multer({ storage: storage })
 
 const instance = new razorpay({
@@ -50,14 +49,10 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.get('/res', function (req, res) {
   res.render('res');
 });
-router.get('/order', isLoggedIn, function (req, res) {
-  orderModel.find({}, function (err, order) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render('order', { order: order });
-    }
-  });
+router.get('/order', isLoggedIn, async function (req, res) {
+  const user = await userModel.findById(req.user._id)
+  const order = await orderModel.find()
+  res.render('order', { order, user: user.cart });
 });
 
 router.get('/checkout', function (req, res) {
@@ -73,23 +68,17 @@ router.get('/uploadfood', isLoggedIn, function (req, res) {
   res.render('uploadfood');
 });
 
-// router.get('/addfood', function (req, res) {
-//   userModel.findOne({ username: req.session.passport.user})
-// });
-
-
 router.get('/food/:name', function (req, res) {
   orderModel.distinct('foodName', function (err, foundfood) {
     const cpy = foundfood.filter(function (data) {
-      console.log(data);
       if (data.toLowerCase().includes(req.params.name.toLowerCase())) {
-        console.log(data);
         return data;
       }
     })
     res.json({ foundfood: cpy });
   })
 });
+
 router.get('/searchfood/:name', function (req, res) {
   orderModel.find({ foodName: req.params.name })
     .then(function (foundfood) {
@@ -101,8 +90,39 @@ router.get('/cart', isLoggedIn, function (req, res) {
   userModel.findOne({ username: req.session.passport.user.username })
     .populate('cart')
     .then(function (founduser) {
-      console.log(founduser)
-      res.render('cart', { founduser })
+      var subtotal = 0;
+      founduser.cart.forEach(function (data) {
+        subtotal += parseInt(data.foodPrice * data.foodQuantity);
+      })
+      res.render('cart', { founduser, subtotal })
+    })
+});
+
+router.get('/cart/inc/:id', isLoggedIn, function (req, res) {
+  orderModel.findById(req.params.id)
+    .then(function (foundfood) {
+      foundfood.foodQuantity += 1;
+      foundfood.save();
+      res.redirect('back');
+    })
+});
+
+router.get('/cart/dec/:id', isLoggedIn, function (req, res) {
+  userModel.findOne({ username: req.session.passport.user.username })
+    .populate('cart')
+    .then(function (founduser) {
+      orderModel.findById(req.params.id)
+        .then(function (foundfood) {
+          if (foundfood.foodQuantity > 1) {
+            foundfood.foodQuantity -= 1;
+            foundfood.save();
+            res.redirect('back');
+          } else {
+            founduser.cart.remove(foundfood._id);
+            founduser.save();
+            res.redirect('back');
+          }
+        })
     })
 });
 
@@ -133,9 +153,7 @@ router.post('/addfood', isLoggedIn, upload.single('foodImage'), function (req, r
           res.redirect('/order');
         })
     })
-
 });
-
 
 router.post('/register', function (req, res) {
   var newUser = new userModel({
@@ -150,11 +168,36 @@ router.post('/register', function (req, res) {
       })
     })
 });
-router.get('/google/auth', passport.authenticate('google', { scope: ['profile', 'email'] })
-);
+router.get('/googleregister', isLoggedIn, async function (req, res) {
+  var User = await userModel.findOne({ username: req.session.passport.user._json.email })
+  if (User) {
+    req.logout(function (err) {
+      if (err) { return next(err) }
+      res.send(`<script>alert("You are already registered with this email. Please login with your email and password.");window.location.href="/";</script>`);
+    });
+  }
+  else {
+    res.render('googleregister', { user: req.session.passport.user._json });
+  }
+});
+router.post('/googleregister', isLoggedIn, function (req, res) {
+  var newUser = new userModel({
+    username: req.body.username,
+    name: req.body.name,
+    mobilenumber: req.body.number
+  })
+  userModel.register(newUser, req.body.password)
+    .then(function (u) {
+      passport.authenticate('local')(req, res, function () {
+        res.redirect('/order');
+      })
+    })
+});
+
+router.get('/google/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/google/authenticated', passport.authenticate('google', {
-  successRedirect: '/order',
+  successRedirect: '/googleregister',
   failureRedirect: '/'
 }), function (req, res) { })
 

@@ -9,7 +9,11 @@ const orderSchema = new mongoose.Schema({
     foodOwner:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
-    }]
+    }],
+    foodQuantity:{
+        type:Number,
+        default:1
+    }
 })
 
 module.exports = mongoose.model('Order', orderSchema);
