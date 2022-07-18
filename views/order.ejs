@@ -177,11 +177,12 @@
         font-size: 0.9vw;
         color: rgb(158, 158, 158);
         margin-top: 5%;
+        text-align: center;
     }
 
     #welcome a {
-        margin-left: 30%;
         text-decoration: none;
+        margin-right: 8%;
     }
 
     .card:hover {
@@ -432,7 +433,13 @@
                                         </div>
                                         <div id="time">
                                             <h6>
-                                                <%= elem.foodTime %>
+                                                <% if(elem.foodTime > 59){ %>
+                                                    <%= Math.floor(elem.foodTime / 60) %> hr.
+                                                    <%= Math.floor(elem.foodTime % 60) %> mins
+                                                <% }else{ %>
+                                                    <%= elem.foodTime %> mins
+                                                <% } %>
+                                                
                                             </h6>
                                         </div>
                                         <div id="paisa">
@@ -440,7 +447,13 @@
                                             </h6>
                                         </div>
                                         <div id="line"></div>
-                                        <h5 id="welcome"><a href="/addToCart/<%= elem._id %>">ADD TO CART </a></h5>
+                                        <h5 id="welcome">
+                                            <% if(user.indexOf(elem._id) === -1){ %>
+                                                <a href="/addToCart/<%= elem._id %>">ADD TO CART </a>
+                                            <% }else{ %>
+                                                <a href="/cart/dec/<%= elem._id %>">REMOVE FROM CART </a>
+                                            <% } %>
+                                        </h5>
                                     </div>
                                 </div>
                             </div>
