@@ -21,7 +21,7 @@
                     <h4>Item</h4>
                     <div class="side">
                         <div class="sec">
-                            <h4>Size</h4>
+                            <h4>Time</h4>
                         </div>
                         <div class="sec">
                             <h4>Quantity</h4>
@@ -45,7 +45,13 @@
                             </div>
                             <div class="side">
                                 <div class="sec">
-                                    <%= elem.foodTime %>
+                                    <% if(elem.foodTime > 59){ %>
+                                        <%= Math.floor(elem.foodTime / 60) %> hr.
+                                        <%= Math.floor(elem.foodTime % 60) %> mins
+                                    <% }else{ %>
+                                        <%= elem.foodTime %> mins
+                                    <% } %>
+                                    
                                 </div>
                                 <div class="sec"><i class="ri-indeterminate-circle-line"></i>
                                     <h3>1</h3> <i class="ri-add-circle-line"></i>
@@ -65,21 +71,21 @@
             <div class="calc">
                 <div class="cats txtanim2">
                     <h2>Subtotal</h2>
-                    <h2>$252.00</h2>
+                    <h2>$<%= subtotal %>.00</h2>
                 </div>
                 <div class="cats txtanim2">
                     <h2>Shiping</h2>
-                    <h2>$00.00</h2>
+                    <h2>$05.00</h2>
                 </div>
                 <div class="cats txtanim2">
                     <h2>Tax</h2>
-                    <h2>$252.00</h2>
+                    <h2>$15.00</h2>
                 </div>
             </div>
             <div class="total">
                 <div class="cats txtanim2">
                     <h2>Total</h2>
-                    <h2>$252.00</h2>
+                    <h2>$<%= subtotal + 20 %>.00</h2>
                 </div>
                 <form action="/checkout" method="GEt">
 
