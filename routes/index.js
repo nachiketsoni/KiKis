@@ -50,8 +50,9 @@ router.get('/res', function (req, res) {
   res.render('res');
 });
 router.get('/order', isLoggedIn, async function (req, res) {
+  const user = await userModel.findById(req.user._id)
   const order = await orderModel.find()
-  res.render('order', { order });
+  res.render('order', { order, user: user.cart });
 });
 
 router.get('/checkout', function (req, res) {
@@ -91,10 +92,37 @@ router.get('/cart', isLoggedIn, function (req, res) {
     .then(function (founduser) {
       var subtotal = 0;
       founduser.cart.forEach(function (data) {
-        data.foodPrice = parseInt(data.foodPrice);
-        subtotal += data.foodPrice;
+        subtotal += parseInt(data.foodPrice * data.foodQuantity);
       })
-      res.render('cart', { founduser , subtotal })
+      res.render('cart', { founduser, subtotal })
+    })
+});
+
+router.get('/cart/inc/:id', isLoggedIn, function (req, res) {
+  orderModel.findById(req.params.id)
+    .then(function (foundfood) {
+      foundfood.foodQuantity += 1;
+      foundfood.save();
+      res.redirect('back');
+    })
+});
+
+router.get('/cart/dec/:id', isLoggedIn, function (req, res) {
+  userModel.findOne({ username: req.session.passport.user.username })
+    .populate('cart')
+    .then(function (founduser) {
+      orderModel.findById(req.params.id)
+        .then(function (foundfood) {
+          if (foundfood.foodQuantity > 1) {
+            foundfood.foodQuantity -= 1;
+            foundfood.save();
+            res.redirect('back');
+          } else {
+            founduser.cart.remove(foundfood._id);
+            founduser.save();
+            res.redirect('back');
+          }
+        })
     })
 });
 

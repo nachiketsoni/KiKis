@@ -15,56 +15,63 @@
         <div class="left">
             <a href="/order"><i class="ri-arrow-left-s-line"></i> Back to Store</a>
             <h1 class="txtanim">Food Cart</h1>
-
-            <div class="box">
-                <div class="ctrg txtanim">
-                    <h4>Item</h4>
-                    <div class="side">
-                        <div class="sec">
-                            <h4>Time</h4>
+            <% if(founduser.cart.length > 0){ %>
+                <div class="box">
+                    <div class="ctrg txtanim">
+                        <h4>Item</h4>
+                        <div class="side">
+                            <div class="sec">
+                                <h4>Time</h4>
+                            </div>
+                            <div class="sec">
+                                <h4>Quantity</h4>
+                            </div>
+                            <div class="sec">
+                                <h4>Price</h4>
+                            </div>
+    
                         </div>
-                        <div class="sec">
-                            <h4>Quantity</h4>
-                        </div>
-                        <div class="sec">
-                            <h4>Price</h4>
-                        </div>
-
                     </div>
-                </div>
-                <div class="item">
-                    <% founduser.cart.forEach(function(elem) { %>
-                        <div class="itm txtanim">
-
-                            <div class="lside">
-                                <img src="../images/<%= elem.foodImage %>" alt="">
-                                <h2>
-                                    <%= elem.foodName %>
-                                </h2>
-
+                    <div class="item">
+                        <% founduser.cart.forEach(function(elem) { %>
+                            <div class="itm txtanim">
+    
+                                <div class="lside">
+                                    <img src="../images/<%= elem.foodImage %>" alt="">
+                                    <h2>
+                                        <%= elem.foodName %>
+                                    </h2>
+    
+                                </div>
+                                <div class="side">
+                                    <div class="sec">
+                                        <% if(elem.foodTime > 59){ %>
+                                            <%= Math.floor(elem.foodTime / 60) %> hr.
+                                            <%= Math.floor(elem.foodTime % 60) %> mins
+                                        <% }else{ %>
+                                            <%= elem.foodTime %> mins
+                                        <% } %>
+                                        
+                                    </div>
+                                    <div class="sec">
+                                        <a href="/cart/dec/<%= elem._id %>"><i class="ri-indeterminate-circle-line"></i></a>
+                                        <h3><%= elem.foodQuantity %></h3> 
+                                        <a href="/cart/inc/<%= elem._id %>"><i class="ri-add-circle-line"></i></a>
+                                    </div>
+                                    <div class="sec">$<%= subtotal %>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="side">
-                                <div class="sec">
-                                    <% if(elem.foodTime > 59){ %>
-                                        <%= Math.floor(elem.foodTime / 60) %> hr.
-                                        <%= Math.floor(elem.foodTime % 60) %> mins
-                                    <% }else{ %>
-                                        <%= elem.foodTime %> mins
-                                    <% } %>
-                                    
-                                </div>
-                                <div class="sec"><i class="ri-indeterminate-circle-line"></i>
-                                    <h3>1</h3> <i class="ri-add-circle-line"></i>
-                                </div>
-                                <div class="sec">$<%= elem.foodPrice %>
-                                </div>
-                            </div>
-                        </div>
-                        <% }) %>
-
+                            <% }) %>
+    
+                    </div>
+    
                 </div>
-
-            </div>
+            <% }else{ %>
+                <div>
+                    <h1 class="mtcart">Your cart is empty</h1>
+                </div>
+            <% } %>
         </div>
         <div class="right">
             <h1 class="txtanim2">Summary</h1>
@@ -75,17 +82,29 @@
                 </div>
                 <div class="cats txtanim2">
                     <h2>Shiping</h2>
-                    <h2>$05.00</h2>
+                    <% if(founduser.cart.length > 0){ %>
+                        <h2>$05.00</h2>
+                    <% }else{ %>
+                        <h2>$00.00</h2>
+                    <% } %>
                 </div>
                 <div class="cats txtanim2">
                     <h2>Tax</h2>
-                    <h2>$15.00</h2>
+                    <% if(founduser.cart.length > 0){ %>
+                        <h2>$15.00</h2>
+                    <% }else{ %>
+                        <h2>$00.00</h2>
+                    <% } %>
                 </div>
             </div>
             <div class="total">
                 <div class="cats txtanim2">
                     <h2>Total</h2>
-                    <h2>$<%= subtotal + 20 %>.00</h2>
+                    <% if(founduser.cart.length > 0){ %>
+                        <h2>$<%= subtotal + 20 %>.00</h2>
+                    <% }else{ %>
+                        <h2>$00.00</h2>
+                    <% } %>
                 </div>
                 <form action="/checkout" method="GEt">
 
