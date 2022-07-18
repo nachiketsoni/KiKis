@@ -34,7 +34,6 @@ const storage = multer.diskStorage({
   }
 })
 
-
 const upload = multer({ storage: storage })
 
 const instance = new razorpay({
@@ -51,7 +50,6 @@ router.get('/res', function (req, res) {
   res.render('res');
 });
 router.get('/order', isLoggedIn, async function (req, res) {
-
   const order = await orderModel.find()
   res.render('order', { order });
 });
@@ -68,11 +66,6 @@ router.get('/back', function (req, res) {
 router.get('/uploadfood', isLoggedIn, function (req, res) {
   res.render('uploadfood');
 });
-
-// router.get('/addfood', function (req, res) {
-//   userModel.findOne({ username: req.session.passport.user})
-// });
-
 
 router.get('/food/:name', function (req, res) {
   orderModel.distinct('foodName', function (err, foundfood) {
