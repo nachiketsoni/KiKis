@@ -39,17 +39,17 @@
                                 <div class="lside">
                                     <img src="../images/<%= elem.foodImage %>" alt="">
                                     <h2>
-                                        <%= elem.foodName %>
+                                        <%= elem.foodName  %>
                                     </h2>
     
                                 </div>
                                 <div class="side">
                                     <div class="sec">
-                                        <% if(elem.foodTime > 59){ %>
-                                            <%= Math.floor(elem.foodTime / 60) %> hr.
-                                            <%= Math.floor(elem.foodTime % 60) %> mins
+                                        <% if(elem.foodTime * elem.foodQuantity > 59){ %>
+                                            <%= Math.floor(elem.foodTime * elem.foodQuantity / 60) %> hr.
+                                            <%= Math.floor(elem.foodTime * elem.foodQuantity % 60) %> mins
                                         <% }else{ %>
-                                            <%= elem.foodTime %> mins
+                                            <%= elem.foodTime * elem.foodQuantity %> mins
                                         <% } %>
                                         
                                     </div>
