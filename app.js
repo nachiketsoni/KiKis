@@ -12,6 +12,9 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+const Razorpay = require('razorpay');
+var instance = new Razorpay({ key_id: 'rzp_test_IiBBE2SNfjNWi6', key_secret: 'QvKYuE79SLrdE3OLlXZ8RmCw' })
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

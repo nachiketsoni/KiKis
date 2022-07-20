@@ -3,11 +3,72 @@ const router = express.Router();
 var orderModel = require('./order');
 const userModel = require('./users');
 const passport = require('passport');
-const razorpay = require('razorpay');
+const Razorpay = require('razorpay');
 const multer = require('multer');
 
 const localStrategy = require('passport-local');
 passport.use(new localStrategy(userModel.authenticate()));
+var instance = new Razorpay({ key_id: 'rzp_test_IiBBE2SNfjNWi6', key_secret: 'QvKYuE79SLrdE3OLlXZ8RmCw' })
+
+
+
+
+router.post('/create/orderId', function (req, res, next) {
+  var options = {
+    amount: 50000,  // amount in the smallest currency unit
+    currency: "INR",
+    receipt: "order_rcptid_11"
+  };
+
+
+  instance.orders.create(options, function (err, order) {
+    res.send({ orderId: order })
+  });
+
+
+
+});
+router.post("/api/payment/verify", (req, res) => {
+  let body = req.body.response.razorpay_order_id + "|" + req.body.response.razorpay_payment_id;
+  
+  var crypto = require("crypto");
+  var expectedSignature = crypto.createHmac('sha256', 'QvKYuE79SLrdE3OLlXZ8RmCw')
+  .update(body.toString())
+  .digest('hex');
+  console.log("sig received ", req.body.response.razorpay_signature);
+  console.log("sig generated ", expectedSignature);
+  var response = { "signatureIsValid": "false" }
+  if (expectedSignature === req.body.response.razorpay_signature){
+
+    response = { "signatureIsValid": "true" }
+  }
+  res.send(response);
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
@@ -36,10 +97,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-const instance = new razorpay({
-  key_id: 'rzp_test_hZUEKNvCfMICwO',
-  key_secret: 'dd537sW0c6HggaDgShToZCR9',
-});
 
 /* GET home page. */
 router.get('/', checkLoggedIn, function (req, res) {
