@@ -112,20 +112,20 @@ router.get('/order', isLoggedIn, async function (req, res) {
   res.render('order', { order, user: user.cart });
 });
 
-router.get('/checkout', function (req, res) {
+router.get('/checkout', isLoggedIn, function (req, res) {
   res.render('checkout');
 });
-router.get('/thankyou', function (req, res) {
+router.get('/thankyou',isLoggedIn, function (req, res) {
   res.render('Thankyou');
 });
-router.get('/back', function (req, res) {
+router.get('/back',isLoggedIn, function (req, res) {
   res.redirect('back');
 });
 router.get('/uploadfood', isLoggedIn, function (req, res) {
   res.render('uploadfood');
 });
 
-router.get('/food/:name', function (req, res) {
+router.get('/food/:name',isLoggedIn, function (req, res) {
   orderModel.distinct('foodName', function (err, foundfood) {
     const cpy = foundfood.filter(function (data) {
       if (data.toLowerCase().includes(req.params.name.toLowerCase())) {
@@ -136,7 +136,7 @@ router.get('/food/:name', function (req, res) {
   })
 });
 
-router.get('/searchfood/:name', function (req, res) {
+router.get('/searchfood/:name',isLoggedIn, function (req, res) {
   orderModel.find({ foodName: req.params.name })
     .then(function (foundfood) {
       res.json({ foundfood: foundfood });
