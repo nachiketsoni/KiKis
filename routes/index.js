@@ -39,14 +39,9 @@ router.post("/api/payment/verify", (req, res) => {
   // console.log("sig generated ", expectedSignature);
   var response = { "signatureIsValid": "false" }
   if (expectedSignature === req.body.response.razorpay_signature){
-
     response = { "signatureIsValid": "true" }
   }
-  console.log(res);
-  if(response.signatureIsValid === "true"){
-
-    // res.redirect('/thankyou');
-  }
+    res.send(response);
   });
 
 

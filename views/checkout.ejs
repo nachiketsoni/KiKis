@@ -193,10 +193,12 @@
                 },
                 data: JSON.stringify({ response }),
               };
-              // $.ajax(settings).done(function (response) {
-              //   console.log(response);
-              //   // response.redirect("/thankyou");
-              // });
+              $.ajax(settings).done(function (response) {
+                console.log(response);
+               if(response.signatureIsValid === 'true'){
+                window.location.href = "/Thankyou";
+               }
+              });
             },
             prefill: {
               name:currentuser,
