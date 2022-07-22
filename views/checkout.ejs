@@ -24,8 +24,8 @@
       </div>
       <div class="center">
         <h1 class="txtanim">
-          Where would you like your <br />
-          <span class="txtanim">order sent ?</span>
+          Hi <span id="currentuser" ><%= founduser.name %> </span> , Where would you like your <br />
+          <span class="txtanim">order to sent ?</span>
         </h1>
         <form action="" method="post">
           <select class="txtanim" name="" id="">
@@ -35,13 +35,21 @@
           </select>
           <br />
           <input
+            id="email"
+            class="txtanim"
+            type="text"
+            name="email"
+            placeholder="Email"
+          />
+          <input
             class="txtanim"
             type="text"
             name="address"
             placeholder="Address"
           />
           <div class="do txtanim">
-            <input type="text" name="city" placeholder="City" /><input
+            <input type="text" name="city" placeholder="City" />
+            <input
               type="text"
               name="state"
               placeholder="State"
@@ -54,7 +62,12 @@
             placeholder="Add Delivery Instruction"
           />
           <div class="do txtanim">
-            <input type="text" name="address" placeholder="Pincode" /><input
+            <input type="text" 
+            name="address" 
+            placeholder="Pincode" 
+            />
+            <input
+              id="phnNum"
               type="tel"
               name="number"
               placeholder="Phone Number"
@@ -63,26 +76,38 @@
         </form>
       </div>
       <div class="right">
-        <h1>Summary</h1>
-        <div class="calc">
-          <div class="cats">
-            <h2>Subtotal</h2>
-            <h2>$252.00</h2>
-          </div>
-          <div class="cats">
-            <h2>Shiping</h2>
-            <h2>$00.00</h2>
-          </div>
-          <div class="cats">
-            <h2>Tax</h2>
-            <h2>$252.00</h2>
-          </div>
-        </div>
-        <div class="total">
-          <div class="cats">
-            <h2>Total</h2>
-            <h2>$252.00</h2>
-          </div>
+        <h1 class="txtanim2">Summary</h1>
+            <div class="calc">
+                <div class="cats txtanim2">
+                    <h2>Subtotal</h2>
+                    <h2>$<%= subtotal %>.00</h2>
+                </div>
+                <div class="cats txtanim2">
+                    <h2>Shipping</h2>
+                    <% if(founduser.cart.length > 0){ %>
+                        <h2>$05.00</h2>
+                    <% }else{ %>
+                        <h2>$00.00</h2>
+                    <% } %>
+                </div>
+                <div class="cats txtanim2">
+                    <h2>Tax</h2>
+                    <% if(founduser.cart.length > 0){ %>
+                        <h2>$15.00</h2>
+                    <% }else{ %>
+                        <h2>$00.00</h2>
+                    <% } %>
+                </div>
+            </div>
+            <div class="total">
+                <div class="cats txtanim2">
+                    <h2>Total</h2>
+                    <% if(founduser.cart.length > 0){ %>
+                        <h2>$ <span id="finalAmt" ><%= subtotal + 20 %></span>.00</h2>
+                    <% }else{ %>
+                        <h2>$00.00</h2>
+                    <% } %>
+                </div>
           <form action="/Thankyou" method="GEt">
           <button id="rzp-button1">
             <h3>Place Order</h3>
@@ -109,7 +134,7 @@
           tl
             // .fromTo("#img", {opacity: 0, left:'-10%',duration: 0.00005}, {opacity: 1, left:'50%'});
             // .to('#img',{opacity: 0, left:'-10%',duration: 0.00005})
-            .to("#img", { opacity: 1, left: "50%", ease: Power2.easeInOut });
+            .to("#img", { opacity: 1, left: "50%" });
           document.querySelector(".total button h3").style.opacity = "0";
         });
       document
@@ -117,15 +142,17 @@
         .addEventListener("mouseleave", function (e) {
           var tl = gsap
             .timeline()
-            .to("#img", { left: "110%" })
-            .to("#img", { opacity: 0, duration: 0.00005 })
+            .to("#img", { left: "101%"})
+            .to("#img", { opacity: 0, duration: 0.000000005 })
             .to(".total button h3", { opacity: 1 })
-            .to("#img", { left: "-10%", duration: 0.00005 });
+            .to("#img", { left: "-3%", duration: 0.00005 });
 
           // document.querySelector('#img').style.left= `-10%`;
         });
 
-      function openCheckout() {
+        function openCheckout() {
+        var finalAmt = document.getElementById("finalAmt").textContent;
+        var currentuser = document.getElementById("currentuser").textContent;
         var orderId;
         $(document).ready(function () {
           var settings = {
@@ -136,7 +163,7 @@
               "Content-Type": "application/json",
             },
             data: JSON.stringify({
-              amount: "50000",
+              amount: finalAmt,
             }),
           };
 
@@ -147,15 +174,14 @@
             $("#rzp-button1").show();
           });
         });
-
         document.getElementById("rzp-button1").onclick = function (e) {
           var options = {
             key: "rzp_test_IiBBE2SNfjNWi6", // Enter the Key ID generated from the Dashboard
-            amount: "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            amount: finalAmt, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             currency: "INR",
-            name: "Acme Corp",
+            name: "KiKi's Kitchen",
             description: "Test Transaction",
-            image: "https://example.com/your_logo",
+            image: "https://cdn.dribbble.com/users/378783/screenshots/3131251/untitled-1.jpg",
             order_id: orderId.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
             handler: function (response) {
               var settings = {
@@ -167,15 +193,15 @@
                 },
                 data: JSON.stringify({ response }),
               };
-              $.ajax(settings).done(function (response) {
-                console.log(response);
-                res.redirect("/thankyou");
-              });
+              // $.ajax(settings).done(function (response) {
+              //   console.log(response);
+              //   // response.redirect("/thankyou");
+              // });
             },
             prefill: {
-              name: "Gaurav Kumar",
-              email: "gaurav.kumar@example.com",
-              contact: "9999999999",
+              name:currentuser,
+              email: document.getElementById("email").value,
+              contact: document.getElementById("phnNum").value,
             },
 
             notes: {
