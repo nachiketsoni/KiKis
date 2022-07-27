@@ -47,30 +47,6 @@ router.post("/api/payment/verify", (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const GOOGLE_CLIENT_ID = '49142768196-nnflv13nom43sa6vkluoesl9olo2jlog.apps.googleusercontent.com';
 const GOOGLE_CLIENT_SECRET = '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'
@@ -106,6 +82,10 @@ router.get('/', checkLoggedIn, function (req, res) {
 router.get('/res', function (req, res) {
   res.render('res');
 });
+
+router.get('/del', function (req, res) {
+  res.render('delete');
+});
 router.get('/order', isLoggedIn, async function (req, res) {
   const user = await userModel.findById(req.user._id)
   const order = await orderModel.find()
@@ -113,7 +93,15 @@ router.get('/order', isLoggedIn, async function (req, res) {
 });
 
 router.get('/checkout', isLoggedIn, function (req, res) {
-  res.render('checkout');
+  userModel.findOne({ username: req.session.passport.user.username })
+    .populate('cart')
+    .then(function (founduser) {
+      var subtotal = 0;
+      founduser.cart.forEach(function (data) {
+        subtotal += parseInt(data.foodPrice * data.foodQuantity);
+      })
+      res.render('checkout', { founduser, subtotal })
+    })
 });
 router.get('/thankyou',isLoggedIn, function (req, res) {
   res.render('Thankyou');
