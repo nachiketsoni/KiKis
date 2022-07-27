@@ -15,9 +15,9 @@ var instance = new Razorpay({ key_id: 'rzp_test_IiBBE2SNfjNWi6', key_secret: 'Qv
 
 router.post('/create/orderId', function (req, res, next) {
   var options = {
-    amount: 50000,  // amount in the smallest currency unit
+    amount: req.body.amount + "00",  // amount in the smallest currency unit
     currency: "INR",
-    receipt: "order_rcptid_11"
+    receipt: "order_rcptid_11" + Math.floor(Math.random() * 100000000000 ) + Date.now(),
   };
 
 
@@ -35,14 +35,13 @@ router.post("/api/payment/verify", (req, res) => {
   var expectedSignature = crypto.createHmac('sha256', 'QvKYuE79SLrdE3OLlXZ8RmCw')
   .update(body.toString())
   .digest('hex');
-  console.log("sig received ", req.body.response.razorpay_signature);
-  console.log("sig generated ", expectedSignature);
+  // console.log("sig received ", req.body.response.razorpay_signature);
+  // console.log("sig generated ", expectedSignature);
   var response = { "signatureIsValid": "false" }
   if (expectedSignature === req.body.response.razorpay_signature){
-
     response = { "signatureIsValid": "true" }
   }
-  res.send(response);
+    res.send(response);
   });
 
 

@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous"
+  />
   <style>
     * {
       padding: 0%;
@@ -158,9 +164,9 @@
     #line {
       /* height: 0.1vh; */
       border-top: 1px solid black;
-      margin-top: -11%;
+      margin-top: -18%;
       width: 90%;
-      
+
       /* background-color: rgb(199, 199, 199); */
     }
 
@@ -277,8 +283,8 @@
       height: 100%;
       width: 100%;
     }
-    a{
-        text-decoration: none;
+    a {
+      text-decoration: none;
     }
 
     #add2 {
@@ -352,6 +358,31 @@
       cursor: pointer;
       background-color: #dadada;
     }
+    input.search,
+    span {
+      margin-top: 20px;
+    }
+
+    input.search {
+      margin-left: 20px;
+    }
+
+    ul.list {
+      padding: 0;
+      list-style: none;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 20px;
+    }
+
+    .list li {
+      padding: 10px 20px;
+    }
+
+    .list li + li {
+      border-top: 1px solid #ccc;
+    }
   </style>
 
   <body>
@@ -415,6 +446,69 @@
               />
             </div>
           </div>
+
+          <section>
+            <div id="hacker-list">
+              <div class="form-inline">
+                <!-- The search class allows List.js to search through the list -->
+                <div class="form-group">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    class="search form-control"
+                  />
+                </div>
+
+                <!-- The sort class allows List.js to sort the list depending on the value of the data-sort attribute assigned to the element -->
+                <div class="form-group">
+                  <span class="sort btn btn-default" data-sort="name"
+                    >Sort by Name</span
+                  >
+                  <span class="sort btn btn-default" data-sort="city"
+                    >Sort by City</span
+                  >
+                </div>
+
+                <!-- The filter buttons -->
+                <div class="form-group">
+                  <span id="filter" class="btn btn-default"
+                    >Show People in Edmonton (Filter)</span
+                  >
+                  <span id="removeFilters" class="btn btn-default"
+                    >Remove Filters</span
+                  >
+                </div>
+              </div>
+
+              <ul class="list">
+                <li>
+                  <h4 class="name">Abraham</h4>
+                  <p class="city">Stockholm</p>
+                </li>
+                <li>
+                  <h4 class="name">Jonas</h4>
+                  <p class="city">Berlin</p>
+                </li>
+                <li>
+                  <h4 class="name">Bob</h4>
+                  <p class="city">Edmonton</p>
+                </li>
+                <li>
+                  <h4 class="name">Hulk</h4>
+                  <p class="city">Calgary</p>
+                </li>
+                <li>
+                  <h4 class="name">Daniel</h4>
+                  <p class="city">New York</p>
+                </li>
+                <li>
+                  <h4 class="name">Susan</h4>
+                  <p class="city">Edmonton</p>
+                </li>
+              </ul>
+            </div>
+          </section>
+
           <div id="foodlist">
             <% order.forEach(function(elem){ %>
             <div class="food">
@@ -455,13 +549,15 @@
                     <% if(user.indexOf(elem._id) === -1){ %>
                     <a href="/addToCart/<%= elem._id %>">
                       <div id="line">
-                        <h5 style="color: rgb(0, 0, 208);" id="welcome">ADD TO CART</h5>
+                        <h5 style="color: rgb(0, 0, 208)" id="welcome">
+                          ADD TO CART
+                        </h5>
                       </div>
                     </a>
                     <% }else{ %>
                     <a href="/cart/dec/<%= elem._id %>">
                       <div id="line">
-                        <h5 style="color: red;"  id="welcome">REMOVE TO CART</h5>
+                        <h5 style="color: red" id="welcome">REMOVE TO CART</h5>
                       </div>
                     </a>
                     <% } %>
@@ -480,7 +576,35 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
     <script>
+      (function filterkrlo() {
+        var options = {
+          valueNames: ["name", "city"],
+        };
+        var hackerList = new List("hacker-list", options);
+
+        // Assigning references to the filter buttons
+        var filterCityButton = document.getElementById("filter");
+        var removeFiltersButton = document.getElementById("removeFilters");
+
+        // When the filter button is clicked. The list is filtered by calling the filter function of the list object and passing in a function that accepts the list items.
+        filterCityButton.addEventListener("click", function () {
+          hackerList.filter(function (item) {
+            if (item.values().city == "Edmonton") {
+              return true;
+            } else {
+              return false;
+            }
+          }); // Only items that have Edmonton as the city.
+        });
+
+        // When the remove filter button is clicked, the filters are removed by calling the filter function once again with no parameters.
+        removeFiltersButton.addEventListener("click", function () {
+          hackerList.filter();
+        });
+      })();
+
       var foodname = document.querySelector(".foodname");
       var searchbox = document.querySelector(".searchbox");
       foodname.addEventListener("keyup", function (e) {
@@ -488,9 +612,9 @@
         if (foodname.length > 0) {
           axios.get("/food/" + foodname).then(function (response) {
             searchbox.innerHTML = ``;
-            
+
             response.data.foundfood.forEach((elem) => {
-                console.log(response);  
+              console.log(response);
               if (response.data.foundfood.indexOf(elem) != -1) {
                 searchbox.innerHTML += `
                                 <a class="singlefood" href="/searchfood/${elem}">

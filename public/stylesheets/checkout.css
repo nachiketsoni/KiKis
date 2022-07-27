@@ -91,7 +91,7 @@ html,body{
           height: 100%;
           position: relative;
           display: flex;
-          /* overflow: hidden; */
+          overflow: hidden;
 }
 a{
           text-decoration: none;
@@ -184,7 +184,6 @@ transform-origin:left;
 .center form{
           width: 100%;
           height: 70%;
-          /* background-color: #d7d7d7; */
 }
 .do{
           width: 100%;
@@ -289,14 +288,14 @@ select option{
           width: 100%;
           
 }
-.total .cats h2{
+.total .cats h2,#finalAmt{
           font-size: 1.5vw;
           font-weight: 600;
           margin-top: 1vw;
           color: #3f3f3f;
 }
-.cats h2:nth-child(1){
-          font-weight: 400;
+.cats h2:nth-child(1),.cats h2:nth-child(1) span{
+          font-weight: 600;
 }
 .total form{
           width: 100%;
@@ -316,7 +315,7 @@ select option{
           margin-bottom: 2vw;
           overflow: hidden;
           cursor: pointer;
-          transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
+          transition: all cubic-bezier(0.19, 1, 0.22, 1) .1s;
 }
 .total button h3{
           font-size: 1.3vw;
@@ -329,9 +328,9 @@ select option{
           position: absolute;
           object-fit: cover;
           left: -10%;
+          transition: all cubic-bezier(0.19, 1, 0.22, 1) .1s;
           top: 50%;
           transform: translate(-50%,-50%);
-          transition: all cubic-bezier(0.19, 1, 0.22, 1) .5s;
           z-index: 2;
 }
 
