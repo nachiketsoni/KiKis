@@ -45,7 +45,6 @@ router.post("/api/payment/verify", (req, res) => {
   });
 
 
-
 const GoogleStrategy = require('passport-google-oauth2').Strategy;
 const GOOGLE_CLIENT_ID = '49142768196-nnflv13nom43sa6vkluoesl9olo2jlog.apps.googleusercontent.com';
 const GOOGLE_CLIENT_SECRET = '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'
@@ -87,8 +86,16 @@ router.get('/del', function (req, res) {
 });
 router.get('/order', isLoggedIn, async function (req, res) {
   const user = await userModel.findById(req.user._id)
-  const order = await orderModel.find()
+  const order = await orderModel.find().populate('foodOwner')
+  
   res.render('order', { order, user: user.cart });
+});
+
+router.get('/orderm', isLoggedIn, async function (req, res) {
+  const user = await userModel.findById(req.user._id)
+  const order = await orderModel.find().populate('foodOwner')
+  
+  res.json({ order, user: user.cart });
 });
 
 router.get('/checkout', isLoggedIn, function (req, res) {
@@ -125,6 +132,7 @@ router.get('/food/:name',isLoggedIn, function (req, res) {
 
 router.get('/searchfood/:name',isLoggedIn, function (req, res) {
   orderModel.find({ foodName: req.params.name })
+  .populate('foodOwner')
     .then(function (foundfood) {
       res.json({ foundfood: foundfood });
     })

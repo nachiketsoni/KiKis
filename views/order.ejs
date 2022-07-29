@@ -12,379 +12,7 @@
     integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
     crossorigin="anonymous"
   />
-  <style>
-    * {
-      padding: 0%;
-      margin: 0%;
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      width: 100%;
-      background-color: rgb(255, 255, 255);
-    }
-
-    #left {
-      height: 100vh;
-      width: 100vw;
-      background-color: rgb(255, 255, 255);
-    }
-
-    #box1 {
-      display: flex;
-      position: relative;
-    }
-
-    #adds {
-      display: flex;
-
-      height: 40%;
-      width: 100%;
-      position: relative;
-      margin-top: 4%;
-      background-color: rgb(0, 0, 0);
-    }
-
-    .food {
-      margin-left: 1.5%;
-      margin-top: 3%;
-    }
-
-    #foodlist {
-      display: flex;
-      flex-wrap: wrap;
-      width: 90%;
-      margin-left: 7%;
-      margin-top: 4%;
-      background-color: rgba(255, 255, 255, 0.212);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .cards-list {
-      z-index: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-
-    .card {
-      margin: 30px auto;
-      width: 300px;
-      height: 400px;
-      border-radius: 22px;
-      cursor: pointer;
-      transition: 0.4s;
-      background-color: rgb(241, 241, 241);
-      overflow: hidden;
-    }
-
-    .card .card_image {
-      width: 100%;
-      height: 60%;
-      padding: 20px 20px;
-      overflow: hidden;
-    }
-
-    .card .card_image img {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 22px;
-    }
-
-    .card .card_title {
-      border-radius: 0px 0px 40px 40px;
-      font-family: sans-serif;
-      font-size: 30px;
-      margin-top: 0px;
-      font-weight: 100;
-      height: 40px;
-      margin-left: 8%;
-      color: rgb(94, 94, 94);
-      font-size: 1.5vw;
-    }
-
-    #rating {
-      position: relative;
-      height: 3.4vh;
-      width: 4vw;
-      background-color: orange;
-    }
-
-    #rating h5 {
-      position: absolute;
-      right: 8%;
-      top: 5%;
-      color: whitesmoke;
-    }
-
-    #time {
-      position: relative;
-      left: 40%;
-      top: -50%;
-      color: whitesmoke;
-      color: black;
-    }
-
-    #time h6 {
-      font-size: 1vw;
-      font-weight: 100;
-    }
-
-    #paisa {
-      position: relative;
-      height: 2vh;
-      width: 4vw;
-      left: 76%;
-      top: -150%;
-      color: whitesmoke;
-      color: black;
-    }
-
-    #paisa h6 {
-      font-size: 1.1vw;
-      font-weight: 100;
-    }
-
-    .card .card_title h6 {
-      border-radius: 0px 0px 40px 40px;
-      font-family: sans-serif;
-      font-size: 30px;
-      margin-top: 0px;
-      font-weight: 100;
-      height: 40px;
-
-      color: rgb(128, 128, 128);
-      font-size: 1.2vw;
-    }
-
-    #line {
-      /* height: 0.1vh; */
-      border-top: 1px solid black;
-      margin-top: -18%;
-      width: 90%;
-
-      /* background-color: rgb(199, 199, 199); */
-    }
-
-    #welcome {
-      font-size: 0.9vw;
-      margin-top: 5%;
-      text-align: center;
-    }
-
-    #welcome a {
-      text-decoration: none;
-      margin-right: 8%;
-    }
-
-    .card:hover {
-      transform: scale(0.9, 0.9);
-      border: 1px solid rgb(255, 255, 255);
-    }
-
-    .title-white {
-      color: white;
-    }
-
-    .title-black {
-      color: black;
-    }
-
-    @media all and (max-width: 500px) {
-      .card-list {
-        flex-direction: column;
-      }
-    }
-
-    nav {
-      position: fixed;
-      height: 8vh;
-      top: 0%;
-      width: 100%;
-      z-index: 2;
-      display: flex;
-      background-color: rgb(255, 255, 255);
-    }
-
-    #lef {
-      height: 100%;
-      width: 50%;
-    }
-
-    #lef h1 {
-      font-size: 1.6vw;
-      font-family: roboto black;
-      color: rgb(53, 0, 0);
-
-      margin-left: 21%;
-      margin-top: 2.3%;
-    }
-
-    #lef a {
-      text-decoration: none;
-      color: rgb(53, 0, 0);
-    }
-
-    #righ {
-      margin-left: 13%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      width: 50%;
-    }
-
-    #righ a {
-      text-decoration: none;
-      color: rgb(0, 0, 0);
-      font-family: okra light;
-      margin-left: 6%;
-      margin-top: -0%;
-      font-weight: 1000;
-    }
-
-    #righ svg {
-      margin-left: 4%;
-    }
-
-    #add {
-      position: absolute;
-      top: 10%;
-
-      height: 80%;
-      width: 20%;
-      background-color: red;
-      border-radius: 22px;
-      overflow: hidden;
-      margin-left: 9%;
-    }
-
-    #add img {
-      height: 100%;
-      width: 100%;
-    }
-
-    #add1 {
-      position: absolute;
-      top: 10%;
-      left: 30%;
-      height: 80%;
-      width: 20%;
-      background-color: red;
-      border-radius: 22px;
-      overflow: hidden;
-    }
-
-    #add1 img {
-      height: 100%;
-      width: 100%;
-    }
-    a {
-      text-decoration: none;
-    }
-
-    #add2 {
-      position: absolute;
-      top: 10%;
-      left: 51%;
-      height: 80%;
-      width: 20%;
-      background-color: red;
-      border-radius: 22px;
-      overflow: hidden;
-    }
-
-    #add2 img {
-      height: 100%;
-      width: 100%;
-    }
-
-    #add3 {
-      position: absolute;
-      top: 10%;
-      left: 72%;
-      height: 80%;
-      width: 20%;
-      background-color: red;
-      border-radius: 22px;
-      overflow: hidden;
-    }
-
-    #add3 img {
-      height: 100%;
-      width: 100%;
-    }
-
-    #lef input {
-      position: absolute;
-      top: 22%;
-      left: 15%;
-      height: 5vh;
-      width: 26vw;
-      padding: 0 15px;
-      border-radius: 22px;
-      border: 1px solid orange;
-      z-index: 2;
-    }
-
-    .searchbox {
-      position: absolute;
-      top: 52%;
-      left: 15%;
-      min-height: 0vh;
-      width: 26vw;
-      border: 1px solid grey;
-      border-top: none;
-      background-color: white;
-      z-index: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .singlefood {
-      padding: 0 15px;
-      border-bottom: 1px solid #dadada;
-    }
-
-    .singlefood:nth-child(1) {
-      margin-top: 22px;
-    }
-
-    .singlefood:hover {
-      cursor: pointer;
-      background-color: #dadada;
-    }
-    input.search,
-    span {
-      margin-top: 20px;
-    }
-
-    input.search {
-      margin-left: 20px;
-    }
-
-    ul.list {
-      padding: 0;
-      list-style: none;
-      width: 200px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 20px;
-    }
-
-    .list li {
-      padding: 10px 20px;
-    }
-
-    .list li + li {
-      border-top: 1px solid #ccc;
-    }
-  </style>
-
+  <link rel="stylesheet" href="../stylesheets/order.css" />
   <body>
     <div id="main">
       <nav>
@@ -450,7 +78,6 @@
           <section>
             <div id="hacker-list">
               <div class="form-inline">
-                <!-- The search class allows List.js to search through the list -->
                 <div class="form-group">
                   <input
                     type="text"
@@ -459,19 +86,15 @@
                   />
                 </div>
 
-                <!-- The sort class allows List.js to sort the list depending on the value of the data-sort attribute assigned to the element -->
                 <div class="form-group">
-                  <span class="sort btn btn-default" data-sort="name"
+                  <span id="filter" class="sort btn btn-default"
                     >Sort by Name</span
                   >
-                  <span class="sort btn btn-default" data-sort="city"
-                    >Sort by City</span
-                  >
+                  <span class="sort btn btn-default">Sort by City</span>
                 </div>
 
-                <!-- The filter buttons -->
                 <div class="form-group">
-                  <span id="filter" class="btn btn-default"
+                  <span class="btn btn-default"
                     >Show People in Edmonton (Filter)</span
                   >
                   <span id="removeFilters" class="btn btn-default"
@@ -479,72 +102,48 @@
                   >
                 </div>
               </div>
-
-              <ul class="list">
-                <li>
-                  <h4 class="name">Abraham</h4>
-                  <p class="city">Stockholm</p>
-                </li>
-                <li>
-                  <h4 class="name">Jonas</h4>
-                  <p class="city">Berlin</p>
-                </li>
-                <li>
-                  <h4 class="name">Bob</h4>
-                  <p class="city">Edmonton</p>
-                </li>
-                <li>
-                  <h4 class="name">Hulk</h4>
-                  <p class="city">Calgary</p>
-                </li>
-                <li>
-                  <h4 class="name">Daniel</h4>
-                  <p class="city">New York</p>
-                </li>
-                <li>
-                  <h4 class="name">Susan</h4>
-                  <p class="city">Edmonton</p>
-                </li>
-              </ul>
             </div>
           </section>
-
           <div id="foodlist">
             <% order.forEach(function(elem){ %>
+
             <div class="food">
               <div class="cards-list">
                 <div class="card 1">
                   <div class="card_image">
                     <img src="../images/<%= elem.foodImage %>" />
                   </div>
+
                   <div class="card_title title-white">
                     <p><%= elem.foodName %></p>
-                    <h6><%= elem.founduser %></h6>
-                    <div id="rating">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
-                      >
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                          d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
-                          fill="rgba(255,255,255,1)"
-                        />
-                      </svg>
-                      <h5><%= elem.foodRating %></h5>
-                    </div>
-                    <div id="time">
-                      <h6>
-                        <% if(elem.foodTime > 59){ %> <%=
-                        Math.floor(elem.foodTime / 60) %> hr. <%=
-                        Math.floor(elem.foodTime % 60) %> mins <% }else{ %> <%=
-                        elem.foodTime %> mins <% } %>
-                      </h6>
-                    </div>
-                    <div id="paisa">
-                      <h6>₹<%= elem.foodPrice %></h6>
+                    <h6><%= elem.foodOwner[0].username %></h6>
+                    <div id="lane">
+                      <div id="rating">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          height="24"
+                        >
+                          <path fill="none" d="M0 0h24v24H0z" />
+                          <path
+                            d="M12 17l-5.878 3.59 1.598-6.7-5.23-4.48 6.865-.55L12 2.5l2.645 6.36 6.866.55-5.231 4.48 1.598 6.7z"
+                            fill="rgba(255,255,255,1)"
+                          />
+                        </svg>
+                        <h5><%= elem.foodRating %></h5>
+                      </div>
+                      <div id="time">
+                        <h6>
+                          <% if(elem.foodTime > 59){ %> <%=
+                          Math.floor(elem.foodTime / 60) %> hr. <%=
+                          Math.floor(elem.foodTime % 60) %> mins <% }else{ %>
+                          <%= elem.foodTime %> mins <% } %>
+                        </h6>
+                      </div>
+                      <div id="paisa">
+                        <h6>₹<%= elem.foodPrice %></h6>
+                      </div>
                     </div>
                     <% if(user.indexOf(elem._id) === -1){ %>
                     <a href="/addToCart/<%= elem._id %>">
@@ -582,26 +181,30 @@
         var options = {
           valueNames: ["name", "city"],
         };
-        var hackerList = new List("hacker-list", options);
-
         // Assigning references to the filter buttons
-        var filterCityButton = document.getElementById("filter");
+        var filterbtn = document.getElementById("filter");
         var removeFiltersButton = document.getElementById("removeFilters");
+        axios.get("/orderm").then((res) => {
+          var hackerList = res.data.order;
+          console.log(res.data.order);
 
-        // When the filter button is clicked. The list is filtered by calling the filter function of the list object and passing in a function that accepts the list items.
-        filterCityButton.addEventListener("click", function () {
-          hackerList.filter(function (item) {
-            if (item.values().city == "Edmonton") {
-              return true;
-            } else {
-              return false;
-            }
-          }); // Only items that have Edmonton as the city.
-        });
+          // When the filter button is clicked. The list is filtered by calling the filter function of the list object and passing in a function that accepts the list items.
+          filterbtn.addEventListener("click", function () {
+            hackerList.sort(function (a, b) {
+              // console.log(a,b);
+              if (a.foodName.toLowerCase() < b.foodName.toLowerCase())
+                return -1;
+              if (a.foodName.toLowerCase() > b.foodName.toLowerCase()) return 1;
+              return 0;
+            });
+            console.log(res.data.order);
+            // Only items that have Edmonton as the city.
+          });
 
-        // When the remove filter button is clicked, the filters are removed by calling the filter function once again with no parameters.
-        removeFiltersButton.addEventListener("click", function () {
-          hackerList.filter();
+          // When the remove filter button is clicked, the filters are removed by calling the filter function once again with no parameters.
+          removeFiltersButton.addEventListener("click", function () {
+            hackerList.sort();
+          });
         });
       })();
 
