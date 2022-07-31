@@ -224,17 +224,21 @@ router.post(
   }
 );
 
-router.post("/register", function (req, res) {
-  var newUser = new userModel({
-    username: req.body.username,
-    name: req.body.name,
-    number: req.body.number,
-  });
-  userModel.register(newUser, req.body.password).then(function (u) {
+router.post("/register", async (req, res) => {
+  const user = await userModel.findOne({ username: req.body.username })
+  if (user) {
+    res.send("<script>alert('Username already exists'); window.location.href='/';</script>");
+  } else {
+    var newUser = new userModel({
+      username: req.body.username,
+      name: req.body.name,
+      number: req.body.number,
+    });
+    await userModel.register(newUser, req.body.password)
     passport.authenticate("local")(req, res, function () {
       res.redirect("/order");
     });
-  });
+  }
 });
 router.get("/googleregister", isLoggedIn, function (req, res) {
   userModel
@@ -244,7 +248,7 @@ router.get("/googleregister", isLoggedIn, function (req, res) {
     .then(function (User) {
       if (User) {
         console.log("phela pyyaar");
-        req.logout(function (err) {});
+        req.logout(function (err) { });
         req.body.password = "password";
         req.body.username = User.username;
         passport.authenticate("local")(req, res, function () {
@@ -282,7 +286,7 @@ router.get(
     successRedirect: "/order",
     failureRedirect: "/",
   }),
-  function (req, res) {}
+  function (req, res) { }
 );
 
 router.post(
@@ -291,7 +295,7 @@ router.post(
     successRedirect: "/order",
     failureRedirect: "/",
   }),
-  function (req, res, next) {}
+  function (req, res, next) { }
 );
 
 router.get("/logout", function (req, res) {
