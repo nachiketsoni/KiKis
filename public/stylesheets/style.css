@@ -305,7 +305,8 @@ background: linear-gradient(bottom right, #FFFFFF, #FFA201);
   /* margin-right: -50%; */
 }
 
-#log1 svg{
+#log1 svg,#log2 svg{
+  cursor: pointer;
 margin-top: 6%;
 margin-left: 6%;
 }
@@ -404,14 +405,6 @@ margin-left: 6%;
   right: 0;
   z-index: 5;
 }
-
-
-
-
-#log2 svg{
-  margin-top: 6%;
-  margin-left: 6%;
-  }
   #log2 h1{
     margin-left: 7%;
     font-size: 1.8vw;
