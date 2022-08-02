@@ -3,10 +3,9 @@ const plm = require('passport-local-mongoose');
 mongoose.connect('mongodb://localhost/KiKi');
 
 const userSchema = new mongoose.Schema({
-  number: String,
-  name: String,
   username: String,
-  password: String,
+  name: String,
+  number: String,
   order: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Order'
@@ -15,7 +14,8 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Order'
   }],
-});
+  default:[]
+  });
 
 userSchema.plugin(plm);
 

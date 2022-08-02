@@ -362,7 +362,7 @@ margin-left: 6%;
 #log form{
   margin-top: 8%;
 }
-#log input{
+#log form>input{
   margin-left: 7%;
   height: 9vh;
   width: 23vw;
@@ -481,6 +481,21 @@ margin-left: 6%;
   width: 100vw;
   background-color: red;
 }
+#forgot{
+  margin-left: 10vw;
+  font-weight: 600;
+  font-family: aeon;
+  color:#24A0ED;
+  margin-top: 1vw;
+}
+#forgot:hover{
+  color:#077dc6;
+
+}
+a{
+  
+  text-decoration: none;
+}
 .google{
 
   width: 20vw;
@@ -510,3 +525,351 @@ margin-left: 6%;
   font-family: aeon;
   color:#000;
 }
+.google .ripple{
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.7);
+  position: absolute;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple{
+  to{
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+
+.psswd{
+  width: 23vw;  
+  height:56px;
+  position: relative;
+  margin-left: 7%;
+  margin-top: 1vw;
+  border: 1px solid rgba(198, 198, 198, 0.562);
+  border-radius: 8px;
+  overflow: hidden;
+  /* background-color: aqua; */
+}
+.psswd .password {
+  --background: #ffffff;
+  --text-color: #414856;
+  --border-radius: 8px;
+  --width: 23vw;
+  --height: 56px;
+  background: var(--background);
+  width: var(--width);
+  height: var(--height);
+  padding: 0 var(--height) 0 20px;
+  position: relative;
+  line-height: var(--height);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+}
+.psswd .password .password-checkbox {
+  position: absolute;
+  width: var(--height);
+  height: 100%;
+  right: 0;
+  top: 0;
+  margin: 0;
+  z-index: 1;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+.psswd .password .monkey,
+.psswd .password .monkey-hands {
+  position: absolute;
+  width: var(--height);
+  height: 100%;
+  right: 0;
+  top: 0;
+  margin: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.psswd .password .monkey svg,
+.psswd .password .monkey-hands svg {
+  height: calc(var(--height) - 20px);
+  width: calc(var(--height) - 20px);
+}
+.psswd .password .monkey {
+  cursor: pointer;
+}
+.psswd .password .monkey::before {
+  content: "";
+  position: absolute;
+  transition: all 0.2s ease;
+  width: 3px;
+  height: 0px;
+  border-radius: 50%;
+  top: 36px;
+  border-bottom: 3px solid #3C302A;
+}
+.psswd .password .monkey-hands {
+  z-index: 2;
+  perspective: 80px;
+  pointer-events: none;
+}
+.psswd .password .monkey-hands svg {
+  transition: transform 0.2s ease-in, opacity 0.1s;
+  transform-origin: 50% 100%;
+}
+.psswd .password .password-wrapper {
+  /* overflow: hidden; */
+  width: 23vw;  
+  height:56px;
+  position: relative;
+}
+.psswd .password .password-wrapper .password-input,
+.password .password-wrapper .password-text,
+.password .password-wrapper .password-dots {
+  letter-spacing: 2px;
+  color: var(--text-color);
+}
+.psswd .password .password-wrapper .password-input {
+  width: 23vw;  
+  height:56px;
+  border: 0;
+  outline: none;
+  padding: 0;
+  background: none;
+  color: transparent;
+}
+.psswd .password .password-wrapper .password-input::-moz-selection {
+  background: var(--background);
+  color: var(--background);
+}
+.psswd .password .password-wrapper .password-input::selection {
+  background: var(--background);
+  color: var(--background);
+}
+.psswd .password .password-wrapper .password-text,
+.psswd .password .password-wrapper .password-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  pointer-events: none;
+  line-height: var(--height);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.psswd .password .password-wrapper .password-text > span,
+.psswd .password .password-wrapper .password-dots > span {
+  transition: all 0.5s ease;
+  display: inline-block;
+  opacity: var(--opacity, 0);
+}
+.psswd .password .password-wrapper .password-text.cursor::after,
+.psswd .password .password-wrapper .password-dots.cursor::after {
+  content: "";
+  width: 1px;
+  height: 20px;
+  -webkit-text-security: none;
+  background: rgba(65, 72, 86, 0.5);
+  opacity: var(--opacity, 0);
+  display: inline-block;
+  -webkit-animation: blink 0.75s linear infinite alternate;
+          animation: blink 0.75s linear infinite alternate;
+}
+.psswd .password .password-wrapper .password-dots {
+  letter-spacing: 6px;
+  -webkit-text-security: disc;
+  font-family: "text-security-disc";
+}
+.psswd .password.show .monkey-hands svg {
+  transform: perspective(100px) rotateX(-90deg);
+  perspective-origin: bottom;
+  opacity: var(--opacity, 0);
+  transition: transform 0.2s ease, opacity 0.1s 0.1s;
+}
+.psswd .password.show .monkey::before {
+  content: "";
+  border-radius: 45%;
+  width: 9px;
+  height: 6px;
+  border: 0;
+  border-bottom: 2px solid #3C302A;
+  top: 30px;
+}
+.psswd .password.show .password-wrapper .password-text > span {
+  -webkit-animation: bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards;
+          animation: bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards;
+}
+.psswd .password.show .password-wrapper .password-text > span:nth-child(1) {
+  -webkit-animation-delay: 0.04s;
+          animation-delay: 0.04s;
+}
+.psswd .password.show .password-wrapper .password-text > span:nth-child(2) {
+  -webkit-animation-delay: 0.08s;
+          animation-delay: 0.08s;
+}
+.psswd .password.show .password-wrapper .password-text > span:nth-child(3) {
+  -webkit-animation-delay: 0.12s;
+          animation-delay: 0.12s;
+}
+.psswd .password.show .password-wrapper .password-text > span:nth-child(4) {
+  -webkit-animation-delay: 0.16s;
+          animation-delay: 0.16s;
+}
+.psswd .password.show .password-wrapper .password-text > span:nth-child(5) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.psswd .password.show .password-wrapper .password-text > span:nth-child(6) {
+  -webkit-animation-delay: 0.24s;
+          animation-delay: 0.24s;
+}
+.psswd .password.show .password-wrapper .password-text > span:nth-child(7) {
+  -webkit-animation-delay: 0.28s;
+          animation-delay: 0.28s;
+}
+.psswd .password.show .password-wrapper .password-text > span:nth-child(8) {
+  -webkit-animation-delay: 0.32s;
+          animation-delay: 0.32s;
+}
+.psswd .password.show .password-wrapper .password-text > span:nth-child(9) {
+  -webkit-animation-delay: 0.36s;
+          animation-delay: 0.36s;
+}
+.psswd .password.show .password-wrapper .password-text.cursor > span {
+  -webkit-animation: none;
+          animation: none;
+  opacity: var(--opacity, 1);
+}
+.psswd .password.show .password-wrapper .password-text.cursor > span:last-child {
+  -webkit-animation: bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards alternate;
+          animation: bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards alternate;
+  opacity: var(--opacity, 0);
+}
+.psswd .password.show .password-wrapper .password-dots.cursor::after {
+  display: none;
+}
+.psswd .password:not(.show) .password-wrapper .password-text.cursor::after {
+  display: none;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span {
+  -webkit-animation: bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards alternate;
+          animation: bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards alternate;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span:nth-child(1) {
+  -webkit-animation-delay: 0.04s;
+          animation-delay: 0.04s;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span:nth-child(2) {
+  -webkit-animation-delay: 0.08s;
+          animation-delay: 0.08s;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span:nth-child(3) {
+  -webkit-animation-delay: 0.12s;
+          animation-delay: 0.12s;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span:nth-child(4) {
+  -webkit-animation-delay: 0.16s;
+          animation-delay: 0.16s;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span:nth-child(5) {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span:nth-child(6) {
+  -webkit-animation-delay: 0.24s;
+          animation-delay: 0.24s;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span:nth-child(7) {
+  -webkit-animation-delay: 0.28s;
+          animation-delay: 0.28s;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span:nth-child(8) {
+  -webkit-animation-delay: 0.32s;
+          animation-delay: 0.32s;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots > span:nth-child(9) {
+  -webkit-animation-delay: 0.36s;
+          animation-delay: 0.36s;
+}
+.psswd .password:not(.show) .password-wrapper .password-dots.cursor > span {
+  -webkit-animation: none;
+          animation: none;
+  opacity: var(--opacity, 1);
+}
+.psswd .password:not(.show) .password-wrapper .password-dots.cursor > span:last-child {
+  -webkit-animation: bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards alternate;
+          animation: bounce 1s cubic-bezier(0, 1.26, 0.42, 1.26) forwards alternate;
+  opacity: var(--opacity, 0);
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  30% {
+    transform: translateY(0px);
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+  }
+  35% {
+    transform: translateY(1px);
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  30% {
+    transform: translateY(0px);
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+  }
+  35% {
+    transform: translateY(1px);
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes blink {
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
