@@ -91,25 +91,77 @@ router.get("/", checkLoggedIn, function (req, res) {
 router.get("/res", function (req, res) {
   res.render("res");
 });
-router.get("/order", isLoggedIn, async function (req, res) {
-  console.log(req.user);
-  const user = await userModel.findOne({ username: req.user.username });
-  console.log(user);
-  const order = await orderModel.find().populate("foodOwner");
-  res.render("order", { order, user: user.cart });
+
+router.get('/del', function (req, res) {
+  res.render('delete');
 });
-router.get("/orderm", isLoggedIn, async function (req, res) {
-  const user = await userModel.findOne({
-    username: req.session.passport.user.username,
-  });
-  const order = await orderModel.find().populate("foodOwner");
+
+
+router.get('/order', isLoggedIn, async function (req, res) {
+  if (!req.query.page) {
+    req.query.page = 1;
+  }
+  const skip = (req.query.page - 1) * 3;
+  const user = await userModel.findById(req.user._id)
+  const order = await orderModel.find().populate('foodOwner').skip(skip).limit(3);
+  
+  res.render('order', { order, user: user.cart });
+
+
+
+ 
+});
+
+router.get('/orderm', isLoggedIn, async function (req, res) {
+  const user = await userModel.findById(req.user._id)
+  const order = await orderModel.find().populate('foodOwner')
+  
   res.json({ order, user: user.cart });
 });
 
-router.get("/checkout", isLoggedIn, function (req, res) {
-  userModel
-    .findOne({ username: req.session.passport.user.username })
-    .populate("cart")
+router.get('/checkout', isLoggedIn, function (req, res) {
+  userModel.findOne({ username: req.session.passport.user.username })
+    .populate('cart')
+    .then(function (founduser) {
+      var subtotal = 0;
+      founduser.cart.forEach(function (data) {
+        subtotal += parseInt(data.foodPrice * data.foodQuantity);
+      })
+      res.render('checkout', { founduser, subtotal })
+    })
+});
+router.get('/thankyou',isLoggedIn, function (req, res) {
+  res.render('Thankyou');
+});
+router.get('/back',isLoggedIn, function (req, res) {
+  res.redirect('back');
+});
+router.get('/uploadfood', isLoggedIn, function (req, res) {
+  res.render('uploadfood');
+});
+
+router.get('/food/:name',isLoggedIn, function (req, res) {
+  orderModel.distinct('foodName', function (err, foundfood) {
+    const cpy = foundfood.filter(function (data) {
+      if (data.toLowerCase().includes(req.params.name.toLowerCase())) {
+        return data;
+      }
+    })
+    res.json({ foundfood: cpy });
+  })
+});
+
+router.get('/searchfood/:name',isLoggedIn, function (req, res) {
+  orderModel.find({ foodName: req.params.name })
+  .populate('foodOwner')
+    .then(function (foundfood) {
+      res.json({ foundfood: foundfood });
+    })
+});
+
+router.get('/cart', isLoggedIn, function (req, res) {
+  userModel.findOne({ username: req.session.passport.user.username })
+    .populate('cart')
     .then(function (founduser) {
       var subtotal = 0;
       founduser.cart.forEach(function (data) {

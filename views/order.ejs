@@ -167,7 +167,16 @@
             <% }) %>
           </div>
         </div>
+     
       </div>
+      <div class="pagination">
+        <a href="/order?page=1">1</a>
+        <a href="/order?page=2">2</a>
+        <a href="/order?page=3">3</a>
+        <a href="/order?page=4">4</a>
+        <a href="/order?page=5">5</a>
+      </div>
+     
     </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
@@ -233,11 +242,7 @@
         }
       });
 
-      function addToCart(id) {
-        axios.get("/addToCart/" + id).then(function (response) {
-          console.log(response.data);
-        });
-      }
+   
     </script>
   </body>
 </html>
