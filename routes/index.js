@@ -95,11 +95,21 @@ router.get("/res", function (req, res) {
 router.get('/del', function (req, res) {
   res.render('delete');
 });
+
+
 router.get('/order', isLoggedIn, async function (req, res) {
+  if (!req.query.page) {
+    req.query.page = 1;
+  }
+  const skip = (req.query.page - 1) * 3;
   const user = await userModel.findById(req.user._id)
-  const order = await orderModel.find().populate('foodOwner')
+  const order = await orderModel.find().populate('foodOwner').skip(skip).limit(3);
   
   res.render('order', { order, user: user.cart });
+
+
+
+ 
 });
 
 router.get('/orderm', isLoggedIn, async function (req, res) {
