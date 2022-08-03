@@ -132,8 +132,7 @@
         .addEventListener("mouseenter", function (e) {
           var tl = gsap.timeline();
           tl
-            // .fromTo("#img", {opacity: 0, left:'-10%',duration: 0.00005}, {opacity: 1, left:'50%'});
-            // .to('#img',{opacity: 0, left:'-10%',duration: 0.00005})
+   
             .to("#img", { opacity: 1, left: "50%" });
           document.querySelector(".total button h3").style.opacity = "0";
         });
@@ -147,7 +146,6 @@
             .to(".total button h3", { opacity: 1 })
             .to("#img", { left: "-3%", duration: 0.00005 });
 
-          // document.querySelector('#img').style.left= `-10%`;
         });
 
         function openCheckout() {

@@ -5,12 +5,39 @@ const userModel = require("./users");
 const passport = require("passport");
 const Razorpay = require("razorpay");
 const multer = require("multer");
+const resModel = require("./restaurant")
+const { google } = require("googleapis");
+const apiKey = "AIzaSyDKboj8Db_BbLa8TV7DnBhhTRiO7jw4OVY";
+const youtube = google.youtube({
+  version: "v3",
+  auth: apiKey,
+});
 
 const localStrategy = require("passport-local");
 passport.use(new localStrategy(userModel.authenticate()));
 var instance = new Razorpay({
   key_id: "rzp_test_IiBBE2SNfjNWi6",
   key_secret: "QvKYuE79SLrdE3OLlXZ8RmCw",
+});
+
+router.get("/bot/search/:message", async (req, res, next) => {
+  console.log(req.params.message);
+  // res.json(req.params.id)
+  try {
+    const searchQuery = req.params.message;
+    const response = await youtube.search.list({
+      part: "snippet",
+      q: searchQuery,
+      type: "video",
+    });
+    const titles = response.data.items.map((item) => item.snippet.title);
+    const ids = response.data.items;
+    console.log(titles);
+    res.send(response.data.items);
+  } catch (err) {
+    console.log(err);
+    next();
+  }
 });
 
 router.post("/create/orderId", function (req, res, next) {
@@ -88,13 +115,34 @@ router.get("/", checkLoggedIn, function (req, res) {
   res.render("index");
 });
 
-router.get("/res", function (req, res) {
-  res.render("res");
-});
-router.get("/order", isLoggedIn, async function (req, res) {
-  console.log(req.user);
+router.get("/res",isLoggedIn,async function (req, res) {
   const user = await userModel.findOne({ username: req.user.username });
   console.log(user);
+  res.render("res",{user});
+});
+router.post("/createRes",isLoggedIn,  function (req, res) {
+   userModel.findOne({ username: req.user.username })
+   .then((User)=>{
+
+      resModel.create({
+       storeName:req.body.storeName,
+       storeAddress:req.body.storeAddress,
+       restaurantOwner:User._id
+     })
+     .then((resDetails)=>{
+
+       res.send(resDetails)
+       console.log(User);
+    })
+   
+   })
+
+  // res.render("res");
+});
+router.get("/order", isLoggedIn, async function (req, res) {
+  // console.log(req.user);
+  const user = await userModel.findOne({ username: req.user.username });
+  // console.log(user);
   const order = await orderModel.find().populate("foodOwner");
   res.render("order", { order, user: user.cart });
 });
@@ -104,6 +152,16 @@ router.get("/orderm", isLoggedIn, async function (req, res) {
   });
   const order = await orderModel.find().populate("foodOwner");
   res.json({ order, user: user.cart });
+});
+
+router.post("/updatefilter", async function (req, res) {
+  let order = await orderModel.find();
+  filteredorder = await req.body.sortedArr;
+  for (i = 0; i < order.length; i++) {
+    order[i] = filteredorder[i];
+  }
+  // console.log(order)
+  res.send(order);
 });
 
 router.get("/checkout", isLoggedIn, function (req, res) {
@@ -130,6 +188,8 @@ router.get("/uploadfood", isLoggedIn, function (req, res) {
 
 router.get("/food/:name", isLoggedIn, function (req, res) {
   orderModel.distinct("foodName", function (err, foundfood) {
+    console.log(req.params.name.split(' ').toLowerCase());
+    
     const cpy = foundfood.filter(function (data) {
       if (data.toLowerCase().includes(req.params.name.toLowerCase())) {
         return data;
@@ -200,6 +260,10 @@ router.get("/addToCart/:id", isLoggedIn, function (req, res) {
     });
 });
 
+router.get("/forgot", function (req, res) {
+  res.render("forgot");
+});
+
 router.post(
   "/addfood",
   isLoggedIn,
@@ -243,7 +307,7 @@ router.get("/googleregister", isLoggedIn, function (req, res) {
     })
     .then(function (User) {
       if (User) {
-        console.log("phela pyyaar");
+        // console.log("phela pyyaar");
         req.logout(function (err) {});
         req.body.password = "password";
         req.body.username = User.username;
@@ -251,7 +315,7 @@ router.get("/googleregister", isLoggedIn, function (req, res) {
           res.redirect("/order");
         });
       } else {
-        console.log("dusraa pyyaar");
+        // console.log("dusraa pyyaar");
         const username = req.session.passport.user._json.email;
         const name = req.session.passport.user._json.given_name;
         req.logout(function (err) {
