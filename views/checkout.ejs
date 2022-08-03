@@ -105,28 +105,6 @@
           .to("#img", { opacity: 1, left: "50%", ease: Power2.easeInOut });
         document.querySelector(".total button h3").style.opacity = "0";
       });
-<<<<<<< HEAD
-      document
-        .querySelector(".total button")
-        .addEventListener("mouseenter", function (e) {
-          var tl = gsap.timeline();
-          tl
-   
-            .to("#img", { opacity: 1, left: "50%" });
-          document.querySelector(".total button h3").style.opacity = "0";
-        });
-      document
-        .querySelector(".total button")
-        .addEventListener("mouseleave", function (e) {
-          var tl = gsap
-            .timeline()
-            .to("#img", { left: "101%"})
-            .to("#img", { opacity: 0, duration: 0.000000005 })
-            .to(".total button h3", { opacity: 1 })
-            .to("#img", { left: "-3%", duration: 0.00005 });
-
-        });
-=======
     document
       .querySelector(".total button")
       .addEventListener("mouseleave", function (e) {
@@ -139,7 +117,6 @@
 
         // document.querySelector('#img').style.left= `-10%`;
       });
->>>>>>> 6bb9bc2433c8f24bd7551c513ad16bcfa6ccb913
 
     function openCheckout() {
       var orderId;
