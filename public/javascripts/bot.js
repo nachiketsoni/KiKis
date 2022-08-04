@@ -1,6 +1,7 @@
 const btn = document.querySelector(".bot");
 const content = document.querySelector(".content");
 const icon = document.querySelector(".content i");
+const resultVue = document.querySelector("#result");
 // const searched = document.querySelector('#searched');
 // const searchResult = document.querySelector('#searchresult');
 function pausehoja() {
@@ -125,7 +126,7 @@ function speakThis(message) {
         console.log(videoIdhai);
         document.querySelector(
           "#result"
-        ).innerHTML += `<h4 href="https://www.youtube.com/embed/${videoIdhai}?enablejsapi=1&html5=1" target="_blank"  onclick="return show(this)"  >${elem.snippet.title}</h4>`;
+        ).innerHTML += `<h4 href="https://www.youtube.com/embed/${videoIdhai}?enablejsapi=1&html5=1&rel=0&amp;autoplay=1"" target="_blank"  onclick="return show(this)"  >${elem.snippet.title}</h4>`;
       });
     });
 
@@ -169,3 +170,14 @@ function show(id) {
     "#result"
   ).innerHTML = `<iframe id="video" src="${vidURL}"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" frameborder="0" allowfullscreen></iframe>`;
 }
+(function(){
+[content,resultVue].forEach(function(elem){
+
+elem.addEventListener("mouseover", () => {
+  resultVue.style.display = 'initial';
+})
+elem.addEventListener("mouseout", () => {
+  resultVue.style.display= 'none';
+})
+})
+})()

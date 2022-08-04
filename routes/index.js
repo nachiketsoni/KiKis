@@ -120,7 +120,17 @@ router.get("/res",isLoggedIn,async function (req, res) {
   console.log(user);
   res.render("res",{user});
 });
+router.get("/resdata",async function (req, res) {
+  // const user = await userModel.findOne({ username: req.user.username })
+
+  const restaurants = await resModel.find().populate("restaurantOwner").populate
+
+  // console.log(user);
+  res.json(restaurants);
+});
+
 router.post("/createRes",isLoggedIn,  function (req, res) {
+
    userModel.findOne({ username: req.user.username })
    .then((User)=>{
 
@@ -130,7 +140,8 @@ router.post("/createRes",isLoggedIn,  function (req, res) {
        restaurantOwner:User._id
      })
      .then((resDetails)=>{
-
+      User.restaurant.push(resDetails._id)
+      User.save()
        res.send(resDetails)
        console.log(User);
     })
