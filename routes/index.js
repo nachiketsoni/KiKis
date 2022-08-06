@@ -7,6 +7,7 @@ const Razorpay = require("razorpay");
 const multer = require("multer");
 const resModel = require("./restaurant")
 const { google } = require("googleapis");
+const moment = require("moment");
 const apiKey = "AIzaSyDKboj8Db_BbLa8TV7DnBhhTRiO7jw4OVY";
 const youtube = google.youtube({
   version: "v3",
@@ -120,14 +121,35 @@ router.get("/res",isLoggedIn,async function (req, res) {
   console.log(user);
   res.render("res",{user});
 });
+router.get("/myres",isLoggedIn,async function (req, res) {
+  // const user = await userModel.findOne({ username: req.user.username })
+
+  const restaurants = await resModel.find().populate("restaurantOwner")
+
+  // console.log(user);
+  res.render('myrest',{restaurants});
+});
+router.get("/theres/:id",isLoggedIn,async function (req, res) {
+  const user = await userModel.findOne({ username: req.user.username})
+
+  const restaurants = await resModel.findOne({_id:req.params.id}).populate("restaurantOwner")
+
+  // console.log(user);
+  res.render('singleres',{restaurants,user});
+});
 router.get("/resdata",async function (req, res) {
   // const user = await userModel.findOne({ username: req.user.username })
 
-  const restaurants = await resModel.find().populate("restaurantOwner").populate
+  const restaurants = await resModel.find().populate("restaurantOwner")
+  const user = await userModel.find().populate("cart");
+  
+  // var lolo = restaurants.map((rest) => {rest.restaurantOwner.cart.populate()})
+  
+    
+    // console.log(restaurants[1].restaurantOwner,user);
+    res.send([restaurants]);
+  })
 
-  // console.log(user);
-  res.json(restaurants);
-});
 
 router.post("/createRes",isLoggedIn,  function (req, res) {
 
@@ -137,6 +159,7 @@ router.post("/createRes",isLoggedIn,  function (req, res) {
       resModel.create({
        storeName:req.body.storeName,
        storeAddress:req.body.storeAddress,
+       since:moment().format('LL'),
        restaurantOwner:User._id
      })
      .then((resDetails)=>{

@@ -8,7 +8,7 @@ const orderSchema = new mongoose.Schema({
     foodImage:String,
     foodOwner:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: ['User','restaurant']
     }],
     foodQuantity:{
         type:Number,

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/myrest.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a href="/">
+          <img
+            style="height: 8vh"
+            src="https://cdn.dribbble.com/users/378783/screenshots/3131251/untitled-1.jpg"
+            alt=""
+          />
+          <h1 style="color: orange">KiKi</h1>
+        </a>
+      </nav>
+      <% restaurants.forEach(elem => {%>
+
+      <a href="/theres/<%=elem._id%>">
+        <div class="product-card card">
+          <div class="product-header">
+            <img
+              class="product-picture"
+              src="https://assets.gqindia.com/photos/62a9d4653e8cdc9b632eb2ad/master/pass/10%20restaurants%20in%20Mumbai%20that%20offer%20the%20best%20sunset%20views.jpg"
+            />
+          </div>
+          <div class="card-details">
+            <h3 class="product-name"><%=elem.storeName%></h3>
+            <p class="stars"><%=elem.since%></p>
+            <div class="bottom-row">
+              <p class="price">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                earum culpa vero nulla assumenda sint ea voluptas eaque
+                repellat, debitis, sed pariatur totam, deserunt est nihil
+                molestias in unde soluta. Tempore architecto dicta ea velit
+                aperiam? Veritatis architecto et fugiat non autem quibusdam
+                accusamus mollitia, soluta esse voluptate corporis doloribus
+                minus fuga amet qui ipsum delectus blanditiis ipsam rem? Labore.
+                Tempore, alias eos beatae esse possimus consequatur officia
+                mollitia accusantium id ratione quasi placeat reprehenderit, hic
+                similique odio dolorem commodi sapiente veniam nemo? Ex aliquam
+                facilis repellat minima voluptate minus. Magnam est recusandae
+                doloremque dolor quibusdam temporibus eos, ipsum blanditiis
+                alias fugit nobis eaque sed excepturi quam nam incidunt porro
+                reprehenderit laboriosam modi repellendus possimus. Tempore id
+                nisi itaque quod. Beatae, voluptate! Est blanditiis nulla
+                consequuntur eveniet, iste dicta obcaecati, earum, quisquam
+                atque impedit asperiores expedita. Ducimus beatae maxime rerum
+                sit deleniti optio magnam, maiores voluptate odit. Eveniet,
+                deserunt debitis!
+              </p>
+            </div>
+            <h6 class="address">Address: <%=elem.storeAddress%> </h6>
+            <button class="add-cart">Show More</button>
+          </div>
+        </div>
+      </a>
+      <% }) %>
+    </div>
+  </body>
+</html>

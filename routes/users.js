@@ -12,11 +12,11 @@ const userSchema = new mongoose.Schema({
   }],
   cart:[{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Order'
+    ref: ['Order','restaurant' ]
   }],
   restaurant:[{
     type: mongoose.Schema.Types.ObjectId,
-    ref:"restraunt"
+    ref:"restaurant"
   }]
 
   });

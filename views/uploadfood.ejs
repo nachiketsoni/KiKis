@@ -37,7 +37,10 @@
             <input type="text" placeholder="Food Name" name="foodName">
             <input type="number" placeholder="Food Price in Dollar" name="foodPrice">
             <input type="number" placeholder="Food Time in Minutes" name="foodTime">
-            <input type="text" placeholder="VeG / Non-VeG" name="foodType">
+            <div id="radio">
+              <label> <input  type="radio" name="foodType">Veg</label>
+              <label> <input  type="radio" name="foodType" >Non-Veg</label>
+            </div>
             <div class="drop-zone">
                 <span class="drop-zone__prompt">Drop file here or click to upload</span>
                 <input type="file" name="foodImage" class="drop-zone__input">

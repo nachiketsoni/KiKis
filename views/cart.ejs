@@ -105,7 +105,11 @@
             <% } %>
           </div>
           <form action="/checkout" method="GEt">
+            <% if(founduser.cart.length > 0){ %>
             <button class="txtanim2">Checkout</button>
+            <% }else{ %>
+            <button disabled class="txtanim2">Checkout</button>
+            <% } %>
           </form>
         </div>
       </div>
